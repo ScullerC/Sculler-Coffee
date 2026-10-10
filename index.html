@@ -1,110 +1,97 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AT SHOP</title>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AT Shop</title>
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      padding: 22px;
-      background: #10131b;
-      color: #f5f6fa;
-      font-family: Arial, sans-serif;
+      font-family: Tahoma, sans-serif;
+      background: #0d1117;
+      color: white;
+      text-align: center;
     }
-    header { margin: 12px 0 28px; }
-    .logo { color: #67e8c1; font-size: 13px; letter-spacing: 3px; }
-    h1 { font-size: 30px; margin: 8px 0; }
-    p { color: #aeb5c5; line-height: 1.8; }
+    header {
+      padding: 35px 15px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+    }
+    h1 { color: #58a6ff; }
+    main { padding: 25px 15px; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+      max-width: 800px;
+      margin: 25px auto;
+    }
     .card {
-      background: #1b202d;
-      border: 1px solid #303849;
-      border-radius: 18px;
-      padding: 18px;
-      margin: 14px 0;
-    }
-    .emoji { font-size: 32px; }
-    h2 { font-size: 18px; }
-    button, select {
-      width: 100%;
-      padding: 13px;
-      border-radius: 11px;
-      border: 0;
-      font-size: 15px;
-      margin-top: 10px;
+      padding: 25px;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      background: #161b22;
     }
     button {
-      background: #67e8c1;
-      color: #10131b;
-      font-weight: bold;
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 8px;
+      background: #238636;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
     }
-    select { background: #292f3e; color: white; }
-    #result { white-space: pre-line; }
-    footer { text-align: center; color: #8e96a9; margin-top: 30px; }
+    button:hover { background: #2ea043; }
+    #status { color: #58a6ff; margin-top: 20px; }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">AT • DIGITAL STORE</div>
-    <h1>فروشگاه AT</h1>
-    <p>پریمیوم، استارز و خدمات تلگرام، همه یک‌جا.</p>
+    <h1>AT SHOP</h1>
+    <p>فروشگاه دیجیتال شما</p>
   </header>
 
-  <section class="card">
-    <div class="emoji">⭐</div>
-    <h2>Telegram Stars</h2>
-    <p>تعداد استارز موردنظرت رو انتخاب کن.</p>
-    <select id="stars">
-      <option value="50">۵۰ استارز</option>
-      <option value="100">۱۰۰ استارز</option>
-      <option value="250">۲۵۰ استارز</option>
-      <option value="500">۵۰۰ استارز</option>
-    </select>
-    <button onclick="order('stars')">ثبت درخواست استارز</button>
-  </section>
-
-  <section class="card">
-    <div class="emoji">💎</div>
-    <h2>Telegram Premium</h2>
-    <p>مدت اشتراک موردنظرت رو انتخاب کن.</p>
-    <select id="premium">
-      <option value="3">۳ ماهه</option>
-      <option value="6">۶ ماهه</option>
-      <option value="12">۱۲ ماهه</option>
-    </select>
-    <button onclick="order('premium')">ثبت درخواست پریمیوم</button>
-  </section>
-
-  <section class="card">
-    <h2>وضعیت سفارش</h2>
-    <p id="result">هنوز سفارشی ثبت نشده.</p>
-  </section>
-
-  <footer>AT SHOP • Telegram Services</footer>
+  <main>
+    <h2>محصولات ما</h2>
+    <div class="products">
+      <div class="card">
+        <h3>Telegram Premium</h3>
+        <p>خرید اشتراک پریمیوم تلگرام</p>
+        <button onclick="buy('premium')">خرید پریمیوم</button>
+      </div>
+      <div class="card">
+        <h3>Telegram Stars</h3>
+        <p>خرید استارز تلگرام</p>
+        <button onclick="buy('stars')">خرید استارز</button>
+      </div>
+    </div>
+    <p id="status">برای خرید، یکی از محصولات را انتخاب کن.</p>
+  </main>
 
   <script>
-    const tg = window.Telegram?.WebApp;
-    tg?.ready();
-    tg?.expand();
-
-    function order(type) {
-      const value = document.getElementById(type).value;
-      const product = type === 'stars' ? 'استارز' : 'پریمیوم';
-      const details = type === 'stars'
-        ? value + ' استارز'
-        : value + ' ماهه';
-
-      document.getElementById('result').textContent =
-        'درخواست آزمایشی: ' + product + '، ' + details +
-        '\nاین درخواست هنوز به سرور فروشگاه ارسال نشده است.';
-
-      if (tg) {
-        tg.showAlert('این نسخه آزمایشی است؛ سفارش واقعی ثبت نشده.');
+    function buy(product) {
+      const status = document.getElementById('status');
+      if (window.Telegram && window.Telegram.WebApp) {
+        Telegram.WebApp.ready();
+        Telegram.WebApp.sendData(JSON.stringify({
+          action: 'buy',
+          product: product
+        }));
+      } else {
+        status.textContent =
+          'برای خرید، فروشگاه را از داخل ربات تلگرام باز کن.';
       }
     }
+
+    if (window.Telegram && window.Telegram.WebApp) {
+      Telegram.WebApp.ready();
+      Telegram.WebApp.expand();
+    }
   </script>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>
+
+
+
