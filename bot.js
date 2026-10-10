@@ -19,7 +19,12 @@ msg.chat.id,
 {
 reply_markup: {
 keyboard: [
-[{ text: '🛍 فروشگاه', web_app: { url: 'https://voidarman.github.io/AT-Shop/' } }]
+[{
+text: '🛍 فروشگاه',
+web_app: {
+url: 'https://voidarman.github.io/AT-Shop/'
+}
+}]
 ],
 resize_keyboard: true
 }
