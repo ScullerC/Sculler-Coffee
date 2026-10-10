@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AT Shop</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      background: #0d1117;
+      color: white;
+      text-align: center;
+    }
+    header {
+      padding: 35px 15px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+    }
+    h1 { color: #58a6ff; }
+    main { padding: 25px 15px; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+      max-width: 800px;
+      margin: 25px auto;
+    }
+    .card {
+      padding: 25px;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      background: #161b22;
+    }
+    button {
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 8px;
+      background: #238636;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    button:hover { background: #2ea043; }
+    #status { color: #58a6ff; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AT SHOP</h1>
+    <p>فروشگاه دیجیتال شما</p>
+  </header>
+
+  <main>
+    <h2>محصولات ما</h2>
+    <div class="products">
+      <div class="card">
+        <h3>Telegram Premium</h3>
+        <p>خرید اشتراک پریمیوم تلگرام</p>
+        <button onclick="buy('premium')">خرید پریمیوم</button>
+      </div>
+      <div class="card">
+        <h3>Telegram Stars</h3>
+        <p>خرید استارز تلگرام</p>
+        <button onclick="buy('stars')">خرید استارز</button>
+      </div>
+    </div>
+    <p id="status">برای خرید، یکی از محصولات را انتخاب کن.</p>
+  </main>
+
+  <script>
+    function buy(product) {
+      const status = document.getElementById('status');
+      if (window.Telegram && window.Telegram.WebApp) {
+        Telegram.WebApp.ready();
+        Telegram.WebApp.sendData(JSON.stringify({
+          action: 'buy',
+          product: product
+        }));
+      } else {
+        status.textContent =
+          'برای خرید، فروشگاه را از داخل ربات تلگرام باز کن.';
+      }
+    }
+
+    if (window.Telegram && window.Telegram.WebApp) {
+      Telegram.WebApp.ready();
+      Telegram.WebApp.expand();
+    }
+  </script>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</body>
+</html>
+
+
+
