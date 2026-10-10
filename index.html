@@ -2,36 +2,26 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AT Shop</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
-    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: Tahoma, sans-serif;
+      padding: 25px 15px;
       background: #0d1117;
       color: white;
+      font-family: Tahoma, sans-serif;
       text-align: center;
     }
-    header {
-      padding: 35px 15px;
-      background: #161b22;
-      border-bottom: 1px solid #30363d;
-    }
     h1 { color: #58a6ff; }
-    main { padding: 25px 15px; }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-      max-width: 800px;
-      margin: 25px auto;
-    }
     .card {
-      padding: 25px;
+      background: #161b22;
       border: 1px solid #30363d;
       border-radius: 14px;
-      background: #161b22;
+      padding: 24px;
+      margin: 18px auto;
+      max-width: 360px;
     }
     button {
       padding: 12px 20px;
@@ -39,57 +29,53 @@
       border-radius: 8px;
       background: #238636;
       color: white;
-      font-size: 15px;
+      font-size: 16px;
       cursor: pointer;
     }
-    button:hover { background: #2ea043; }
-    #status { color: #58a6ff; margin-top: 20px; }
+    #status { color: #58a6ff; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>AT SHOP</h1>
-    <p>فروشگاه دیجیتال شما</p>
-  </header>
+  <h1>AT SHOP</h1>
+  <p>فروشگاه دیجیتال تلگرام</p>
 
-  <main>
-    <h2>محصولات ما</h2>
-    <div class="products">
-      <div class="card">
-        <h3>Telegram Premium</h3>
-        <p>خرید اشتراک پریمیوم تلگرام</p>
-        <button onclick="buy('premium')">خرید پریمیوم</button>
-      </div>
-      <div class="card">
-        <h3>Telegram Stars</h3>
-        <p>خرید استارز تلگرام</p>
-        <button onclick="buy('stars')">خرید استارز</button>
-      </div>
-    </div>
-    <p id="status">برای خرید، یکی از محصولات را انتخاب کن.</p>
-  </main>
+  <div class="card">
+    <h3>Telegram Premium</h3>
+    <p>خرید اشتراک پریمیوم</p>
+    <button onclick="buy('premium')">خرید پریمیوم</button>
+  </div>
+
+  <div class="card">
+    <h3>Telegram Stars</h3>
+    <p>خرید استارز</p>
+    <button onclick="buy('stars')">خرید استارز</button>
+  </div>
+
+  <p id="status">یک محصول انتخاب کن.</p>
 
   <script>
-    function buy(product) {
-      const status = document.getElementById('status');
-      if (window.Telegram && window.Telegram.WebApp) {
-        Telegram.WebApp.ready();
-        Telegram.WebApp.sendData(JSON.stringify({
-          action: 'buy',
-          product: product
-        }));
-      } else {
-        status.textContent =
-          'برای خرید، فروشگاه را از داخل ربات تلگرام باز کن.';
-      }
+    const tg = window.Telegram?.WebApp;
+    if (tg) {
+      tg.ready();
+      tg.expand();
     }
 
-    if (window.Telegram && window.Telegram.WebApp) {
-      Telegram.WebApp.ready();
-      Telegram.WebApp.expand();
+    function buy(product) {
+      if (!tg || !tg.initData) {
+        document.getElementById('status').textContent =
+          'فروشگاه را از داخل ربات تلگرام باز کن.';
+        return;
+      }
+
+      tg.sendData(JSON.stringify({
+        action: 'buy',
+        product: product
+      }));
+
+      document.getElementById('status').textContent =
+        'درخواست ارسال شد. منتظر پاسخ ربات باش.';
     }
   </script>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>
 
