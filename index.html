@@ -1,852 +1,476 @@
 
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#21140f">
-  <title>Sculler Coffee | فروشگاه قهوه</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#21140f">
+<title>Sculler Coffee</title>
 
-  <style>
-    :root {
-      --bg: #21140f;
-      --panel: #302018;
-      --panel2: #3b281e;
-      --gold: #d7ad69;
-      --cream: #f4e8d5;
-      --muted: #c5b29c;
-      --border: #59402e;
-      --green: #78966b;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--cream);
-      font-family: Tahoma, Arial, sans-serif;
-      line-height: 1.9;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    header {
-      text-align: center;
-      padding: 30px 16px 24px;
-      background: linear-gradient(160deg, #3c281c, #21140f 78%);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .logo {
-      width: 112px;
-      height: 112px;
-      object-fit: contain;
-      border-radius: 18px;
-      margin-bottom: 8px;
-      background: #f4e8d5;
-    }
-
-    h1 {
-      margin: 0;
-      color: var(--gold);
-      font-size: 30px;
-      letter-spacing: 1px;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      font-size: 14px;
-      margin: 4px 0 18px;
-    }
-
-    .search-wrap {
-      max-width: 520px;
-      margin: auto;
-    }
-
-    #search {
-      width: 100%;
-      border: 1px solid var(--border);
-      background: #19100c;
-      color: var(--cream);
-      border-radius: 12px;
-      padding: 13px 15px;
-      font-family: inherit;
-      font-size: 14px;
-      outline: none;
-    }
-
-    #search:focus { border-color: var(--gold); }
-
-    main {
-      width: min(1100px, 100%);
-      margin: auto;
-      padding: 22px 14px;
-    }
-
-    .intro {
-      text-align: center;
-      color: var(--muted);
-      font-size: 14px;
-      margin: 0 0 20px;
-    }
-
-    details.category {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      margin: 13px 0;
-      overflow: hidden;
-    }
-
-    details.category > summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 15px 17px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      color: var(--gold);
-      font-size: 17px;
-      font-weight: bold;
-    }
-
-    details.category > summary::-webkit-details-marker { display: none; }
-
-    details.category > summary::after {
-      content: "+";
-      font-size: 23px;
-      line-height: 1;
-      color: var(--cream);
-    }
-
-    details.category[open] > summary::after { content: "−"; }
-
-    .category-content {
-      padding: 4px 14px 16px;
-      border-top: 1px solid var(--border);
-    }
-
-    .category-note {
-      color: var(--muted);
-      font-size: 12px;
-      margin: 10px 2px 14px;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-      gap: 13px;
-    }
-
-    .product {
-      min-width: 0;
-      background: #241710;
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      padding: 13px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .product-image {
-      width: 100%;
-      height: 170px;
-      object-fit: contain;
-      border-radius: 9px;
-      background: #f1e5d3;
-    }
-
-    .product h3 {
-      color: var(--cream);
-      font-size: 15px;
-      margin: 0;
-    }
-
-    .product-description {
-      font-size: 12px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .product label {
-      color: var(--muted);
-      font-size: 12px;
-      display: block;
-      margin: 3px 0;
-    }
-
-    .product select {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--panel2);
-      color: var(--cream);
-      font-family: inherit;
-      font-size: 13px;
-    }
-
-    .price-area {
-      background: #302017;
-      border-radius: 9px;
-      padding: 10px;
-      margin-top: 3px;
-    }
-
-    .price-line {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .price-line strong {
-      color: var(--cream);
-      text-align: left;
-      font-size: 13px;
-    }
-
-    .final-price {
-      color: var(--gold) !important;
-      font-size: 17px !important;
-    }
-
-    .discount-note {
-      color: var(--green);
-      font-size: 11px;
-      margin-top: 3px;
-    }
-
-    .order-button {
-      display: block;
-      width: 100%;
-      text-align: center;
-      padding: 10px;
-      border-radius: 9px;
-      background: var(--gold);
-      color: #24160e;
-      font-weight: bold;
-      font-size: 13px;
-      margin-top: auto;
-      transition: 0.2s;
-    }
-
-    .order-button:hover { background: #efd09b; }
-
-    .contact {
-      margin-top: 30px;
-      padding: 23px 17px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-    }
-
-    .contact h2 {
-      color: var(--gold);
-      text-align: center;
-      font-size: 21px;
-      margin: 0 0 15px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 10px;
-      max-width: 550px;
-      margin: auto;
-    }
-
-    .contact-item {
-      padding: 12px;
-      border-radius: 10px;
-      background: #241710;
-      border: 1px solid var(--border);
-      overflow-wrap: anywhere;
-    }
-
-    .contact-item a { color: var(--cream); }
-    .contact-item a:hover { color: var(--gold); }
-
-    footer {
-      text-align: center;
-      padding: 20px 12px 26px;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .empty-result {
-      display: none;
-      color: var(--muted);
-      text-align: center;
-      padding: 15px;
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 25px; }
-      main { padding: 15px 10px; }
-      .products { grid-template-columns: 1fr; }
-      .product-image { height: 190px; }
-    }
-  </style>
+<style>
+:root {
+  --bg:#21140f; --panel:#302018; --gold:#d7ad69;
+  --cream:#f4e8d5; --muted:#c5b29c; --border:#59402e;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--cream);
+  font-family:Tahoma,Arial,sans-serif;line-height:1.9
+}
+a{color:inherit;text-decoration:none}
+header{
+  text-align:center;padding:25px 15px;
+  background:linear-gradient(160deg,#432d20,#21140f);
+  border-bottom:1px solid var(--border)
+}
+.logo{
+  width:105px;height:105px;object-fit:contain;
+  border-radius:14px;background:#f4e8d5
+}
+h1{color:var(--gold);margin:5px 0;font-size:28px}
+.subtitle{color:var(--muted);font-size:13px;margin:0 0 16px}
+#search{
+  width:min(540px,100%);padding:13px;border-radius:10px;
+  border:1px solid var(--border);background:#190f0b;color:white;
+  font:inherit;outline:none
+}
+main{max-width:1100px;margin:auto;padding:18px 12px}
+.intro{text-align:center;color:var(--muted);font-size:13px}
+.category{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:13px;margin:13px 0;overflow:hidden
+}
+.category summary{
+  padding:14px 16px;cursor:pointer;list-style:none;
+  color:var(--gold);font-weight:bold;font-size:16px;
+  display:flex;justify-content:space-between
+}
+.category summary::-webkit-details-marker{display:none}
+.category summary:after{content:"+";font-size:20px}
+.category[open] summary:after{content:"−"}
+.category-content{padding:12px;border-top:1px solid var(--border)}
+.note{font-size:12px;color:var(--muted);margin:0 0 12px}
+.products{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px
+}
+.product{
+  min-width:0;background:#241710;border:1px solid var(--border);
+  border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px
+}
+.product-image{
+  width:100%;height:165px;object-fit:contain;border-radius:8px;
+  background:#f4e8d5
+}
+.no-image{
+  height:75px;display:flex;align-items:center;justify-content:center;
+  border:1px dashed var(--border);border-radius:8px;color:var(--muted);
+  font-size:12px
+}
+.product h3{font-size:14px;margin:0;color:var(--cream)}
+.desc{font-size:12px;color:var(--muted);margin:0}
+label{font-size:12px;color:var(--muted);display:block}
+select{
+  display:block;width:100%;margin-top:4px;padding:9px;
+  background:#3b281e;color:var(--cream);border:1px solid var(--border);
+  border-radius:8px;font:inherit;font-size:12px
+}
+.prices{padding:9px;background:#302017;border-radius:8px}
+.price-line{
+  display:flex;justify-content:space-between;gap:8px;
+  font-size:12px;color:var(--muted);align-items:baseline
+}
+.price-line strong{text-align:left;color:var(--cream)}
+.price-line .final{color:var(--gold);font-size:15px}
+.discount-note{font-size:11px;color:#9ec38d}
+.order{
+  margin-top:auto;display:block;text-align:center;padding:9px;
+  border-radius:8px;background:var(--gold);color:#24160e;
+  font-weight:bold;font-size:12px
+}
+.contact{
+  margin-top:25px;padding:18px;background:var(--panel);
+  border:1px solid var(--border);border-radius:13px
+}
+.contact h2{text-align:center;color:var(--gold);font-size:20px}
+.contact-list{max-width:540px;margin:auto;display:grid;gap:10px}
+.contact-item{
+  padding:12px;background:#241710;border:1px solid var(--border);
+  border-radius:9px;overflow-wrap:anywhere
+}
+.contact-item a:hover{color:var(--gold)}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:20px}
+.empty{text-align:center;color:var(--muted);display:none}
+@media(max-width:480px){
+  h1{font-size:24px}.products{grid-template-columns:1fr}
+  .product-image{height:190px}
+}
+</style>
 </head>
 
 <body>
-
 <header>
   <img class="logo" src="IMG_20261011_111405_141.jpg"
-       alt="Sculler Coffee"
-       onerror="this.style.display='none'">
-
+       alt="Sculler Coffee" onerror="this.style.display='none'">
   <h1>SCULLER COFFEE</h1>
   <p class="subtitle">انتخابی برای عاشقان قهوه</p>
-
-  <div class="search-wrap">
-    <input id="search" type="search"
-           placeholder="🔎 جست‌وجوی نام محصول..."
-           aria-label="جست‌وجوی محصولات">
-  </div>
+  <input id="search" type="search" placeholder="🔎 جست‌وجوی محصولات...">
 </header>
 
 <main>
-  <p class="intro">محصول موردنظرت رو انتخاب کن، وزن و قیمت رو ببین و برای سفارش پیام بده.</p>
+<p class="intro">محصول موردنظرت رو انتخاب کن و برای سفارش پیام بده.</p>
 
-  <!-- دانه سبز -->
-  <details class="category" open>
-    <summary>🌱 دانه سبز قهوه</summary>
-    <div class="category-content">
-      <p class="category-note">قیمت بر اساس هر کیلوگرم نمایش داده می‌شود. هر کیسه شامل ۳۰ کیلوگرم دانه سبز است.</p>
-      <div class="products" id="green-products"></div>
-    </div>
-  </details>
+<details class="category" open>
+  <summary>🌱 دانه سبز قهوه</summary>
+  <div class="category-content">
+    <p class="note">کیسه‌های ۳۰ کیلویی. قیمت هر کیلو و هر کیسه نمایش داده می‌شود.</p>
+    <div class="products" id="green"></div>
+  </div>
+</details>
 
-  <!-- قهوه رست شده -->
-  <details class="category">
-    <summary>☕ قهوه رست‌شده</summary>
-    <div class="category-content">
-      <p class="category-note">بسته‌های ۱ و ۵ کیلویی. روبوستا برای بستهٔ ۵ کیلویی ۲٪ و عربیکا ۳٪ تخفیف دارد.</p>
-      <div class="products" id="roasted-products"></div>
-    </div>
-  </details>
+<details class="category">
+  <summary>☕ قهوه رست‌شده</summary>
+  <div class="category-content">
+    <p class="note">قیمت یک کیلویی بدون تخفیف است. روبوستا برای بسته ۵ کیلویی ۲٪ و عربیکا ۳٪ تخفیف دارد.</p>
+    <div class="products" id="roasted"></div>
+  </div>
+</details>
 
-  <!-- میکس -->
-  <details class="category">
-    <summary>🫘 میکس قهوه</summary>
-    <div class="category-content">
-      <p class="category-note">قیمت یک کیلویی بدون تخفیف است. بستهٔ ۵ کیلویی شامل ۲٪ تخفیف می‌شود.</p>
-      <div class="products" id="mix-products"></div>
-    </div>
-  </details>
+<details class="category">
+  <summary>🫘 میکس قهوه</summary>
+  <div class="category-content">
+    <p class="note">بسته ۵ کیلویی شامل ۲٪ تخفیف است؛ بسته یک کیلویی بدون تخفیف.</p>
+    <div class="products" id="mixes"></div>
+  </div>
+</details>
 
-  <!-- پودری -->
-  <details class="category">
-    <summary>🥤 محصولات پودری و نوشیدنی</summary>
-    <div class="category-content">
-      <p class="category-note">بسته‌های ۱ و ۵ کیلویی، بدون تخفیف.</p>
-      <div class="products" id="powder-products"></div>
-    </div>
-  </details>
+<details class="category">
+  <summary>🥤 پودرها و نوشیدنی‌ها</summary>
+  <div class="category-content">
+    <p class="note">قیمت‌ها بدون تخفیف هستند.</p>
+    <div class="products" id="powders"></div>
+  </div>
+</details>
 
-  <p class="empty-result" id="empty-result">محصولی با این نام پیدا نشد.</p>
+<p class="empty" id="empty">محصولی پیدا نشد.</p>
 
-  <!-- تماس -->
-  <section class="contact" id="contact">
-    <h2>📞 ارتباط با Sculler Coffee</h2>
-
-    <div class="contact-list">
-      <div class="contact-item">
-        📱 <strong>تماس تلفنی</strong><br>
-        <a href="tel:09195586944">09195586944</a><br>
-        <a href="tel:09205939763">09205939763</a><br>
-        <a href="tel:09395939763">09395939763</a>
-      </div>
-
-      <div class="contact-item">
-        ✈️ <strong>تلگرام پشتیبانی</strong><br>
-        <a href="https://t.me/Sculler_Support" target="_blank" rel="noopener">
-          @Sculler_Support
-        </a>
-      </div>
-
-      <div class="contact-item">
-        📣 <strong>کانال تلگرام</strong><br>
-        <a href="https://t.me/Sculler_Coffee" target="_blank" rel="noopener">
-          مشاهده کانال Sculler Coffee
-        </a>
-      </div>
-
-      <div class="contact-item">
-        🟢 <strong>واتساپ</strong><br>
-        <a href="https://wa.me/ArmanTajdini" target="_blank" rel="noopener">
-          ارتباط در واتساپ
-        </a>
-      </div>
-    </div>
-  </section>
+<section class="contact" id="contact">
+<h2>📞 ارتباط با Sculler Coffee</h2>
+<div class="contact-list">
+  <div class="contact-item">
+    📱 <strong>تماس تلفنی</strong><br>
+    <a href="tel:09195586944">09195586944</a><br>
+    <a href="tel:09205939763">09205939763</a><br>
+    <a href="tel:09395939763">09395939763</a>
+  </div>
+  <div class="contact-item">
+    ✈️ <strong>تلگرام پشتیبانی</strong><br>
+    <a href="https://t.me/Sculler_Support" target="_blank">@Sculler_Support</a>
+  </div>
+  <div class="contact-item">
+    📣 <strong>کانال تلگرام</strong><br>
+    <a href="https://t.me/Sculler_Coffee" target="_blank">Sculler Coffee</a>
+  </div>
+  <div class="contact-item">
+    🟢 <strong>واتساپ</strong><br>
+    <a href="https://wa.me/ArmanTajdini" target="_blank">ارتباط در واتساپ</a>
+  </div>
+</div>
+</section>
 </main>
-
-<footer>
-  Sculler Coffee · قهوه خوب، انتخاب خوب
-</footer>
+<footer>Sculler Coffee · قهوه خوب، انتخاب خوب</footer>
 
 <script>
-  const SUPPORT_URL = "https://t.me/Sculler_Support";
+const SUPPORT = "https://t.me/Sculler_Support";
+const money = n => new Intl.NumberFormat("fa-IR").format(n) + " تومان";
 
-  const toman = value =>
-    new Intl.NumberFormat("fa-IR").format(value) + " تومان";
+const greenProducts = [
+  {name:"روبوستا چری PB",price:1680000,image:"GR-PB.jpg"},
+  {name:"روبوستا چری AA",price:1800000,image:"GR-AA.jpg"},
+  {name:"عربیکا پلنتیشن",price:3300000,image:"GR-PL.jpg"}
+];
 
-  const greenProducts = [
-    {
-      name: "روبوستا چری PB",
-      price: 1680000,
-      image: "GR-PB.jpg"
-    },
-    {
-      name: "روبوستا چری AA",
-      price: 1800000,
-      image: "GR-AA.jpg"
-    },
-    {
-      name: "عربیکا پلنتیشن AA",
-      price: 3300000,
-      image: "GR-PL.jpg"
-    }
-  ];
+const roastedProducts = [
+  {name:"روبوستا چری PB",kind:"روبوستا",discount:2,roasts:{
+    "مدیوم":{price:2250000,image:"RO-PB-M.jpg"},
+    "دارک":{price:2300000,image:"RO-PB-D.jpg"}
+  }},
+  {name:"روبوستا چری AA",kind:"روبوستا",discount:2,roasts:{
+    "مدیوم":{price:2400000,image:"RO-AA-M.jpg"},
+    "دارک":{price:2450000,image:"RO-AA-D.jpg"}
+  }},
+  {name:"روبوستا ویتنام",kind:"روبوستا",discount:2,roasts:{
+    "مدیوم":{price:2200000},
+    "دارک":{price:2225000}
+  }},
+  {name:"روبوستا اندونزی",kind:"روبوستا",discount:2,roasts:{
+    "مدیوم":{price:3465000},
+    "دارک":{price:3500000}
+  }},
+  {name:"عربیکا ریومیناس",kind:"عربیکا",discount:3,roasts:{
+    "مدیوم":{price:3250000}
+  }},
+  {name:"عربیکا سانتوس",kind:"عربیکا",discount:3,roasts:{
+    "مدیوم":{price:4300000}
+  }},
+  {name:"عربیکا اتیوپی",kind:"عربیکا",discount:3,roasts:{
+    "مدیوم":{price:3675000}
+  }},
+  {name:"عربیکا کلمبیا",kind:"عربیکا",discount:3,roasts:{
+    "مدیوم":{price:5300000}
+  }},
+  {name:"عربیکا نیکاراگوئه",kind:"عربیکا",discount:3,roasts:{
+    "مدیوم":{price:5350000}
+  }},
+  {name:"عربیکا گواتمالا",kind:"عربیکا",discount:3,roasts:{
+    "مدیوم":{price:5350000}
+  }},
+  {name:"عربیکا پلنتیشن",kind:"عربیکا",discount:3,roasts:{
+    "مدیوم":{price:null,image:"AR-PL-M.jpg"}
+  }}
+];
 
-  const roastedProducts = [
-    {
-      name: "روبوستا چری PB",
-      category: "روبوستا",
-      discount: 2,
-      roasts: {
-        "مدیوم": { price: 2250000, image: "RO-PB-M.jpg" },
-        "دارک": { price: 2300000, image: "RO-PB-D.jpg" }
-      }
-    },
-    {
-      name: "روبوستا چری AA",
-      category: "روبوستا",
-      discount: 2,
-      roasts: {
-        "مدیوم": { price: 2400000, image: "RO-AA-M.jpg" },
-        "دارک": { price: 2450000, image: "RO-AA-D.jpg" }
-      }
-    },
-    {
-      name: "روبوستا ویتنام",
-      category: "روبوستا",
-      discount: 2,
-      roasts: {
-        "مدیوم": { price: 2200000 },
-        "دارک": { price: 2225000 }
-      }
-    },
-    {
-      name: "روبوستا اندونزی",
-      category: "روبوستا",
-      discount: 2,
-      roasts: {
-        "مدیوم": { price: 3465000 },
-        "دارک": { price: 3500000 }
-      }
-    },
-    {
-      name: "عربیکا ریومیناس",
-      category: "عربیکا",
-      discount: 3,
-      roasts: {
-        "مدیوم": { price: 3250000 }
-      }
-    },
-    {
-      name: "عربیکا سانتوس",
-      category: "عربیکا",
-      discount: 3,
-      roasts: {
-        "مدیوم": { price: 4300000 }
-      }
-    },
-    {
-      name: "عربیکا اتیوپی",
-      category: "عربیکا",
-      discount: 3,
-      roasts: {
-        "مدیوم": { price: 3675000 }
-      }
-    },
-    {
-      name: "عربیکا کلمبیا",
-      category: "عربیکا",
-      discount: 3,
-      roasts: {
-        "مدیوم": { price: 5300000 }
-      }
-    },
-    {
-      name: "عربیکا نیکاراگوئه",
-      category: "عربیکا",
-      discount: 3,
-      roasts: {
-        "مدیوم": { price: 5350000 }
-      }
-    },
-    {
-      name: "عربیکا گواتمالا",
-      category: "عربیکا",
-      discount: 3,
-      roasts: {
-        "مدیوم": { price: 5350000 }
-      }
-    },
-    {
-      name: "عربیکا پلنتیشن AA",
-      category: "عربیکا",
-      discount: 3,
-      roasts: {
-        "مدیوم": { price: null, image: "AR-PL-M.jpg" }
-      }
-    }
-  ];
+const mixProducts = [
+  {name:"۱۰۰٪ روبوستا",price:2470000},
+  {name:"۷۰٪ روبوستا",price:2900000},
+  {name:"۵۰٪ روبوستا، ۵۰٪ عربیکا اقتصادی",price:3200000},
+  {name:"۵۰٪ روبوستا، ۵۰٪ عربیکا ویژه",price:3780000},
+  {name:"۷۰٪ عربیکا اقتصادی",price:3780000},
+  {name:"۷۰٪ عربیکا ویژه",price:4100000},
+  {name:"۱۰۰٪ عربیکا اقتصادی",price:4100000},
+  {name:"۱۰۰٪ عربیکا ویژه",price:4500000}
+];
 
-  const mixProducts = [
-    { name: "۱۰۰٪ روبوستا", price: 2470000 },
-    { name: "۷۰٪ روبوستا", price: 2900000 },
-    { name: "۵۰٪ روبوستا، ۵۰٪ عربیکا اقتصادی", price: 3200000 },
-    { name: "۵۰٪ روبوستا، ۵۰٪ عربیکا ویژه", price: 3780000 },
-    { name: "۷۰٪ عربیکا اقتصادی", price: 3780000 },
-    { name: "۷۰٪ عربیکا ویژه", price: 4100000 },
-    { name: "۱۰۰٪ عربیکا اقتصادی", price: 4100000 },
-    { name: "۱۰۰٪ عربیکا ویژه", price: 4500000 }
-  ];
+const powderProducts = [
+  {name:"کاپوچینو",price:1350000,image:"cappuccino.png"},
+  {name:"هات چاکلت",price:1350000,image:"hot-chocolate.png"},
+  {name:"کافی میکس",price:850000,image:"coffee-mix.png"},
+  {name:"چای ماسالا",price:1080000,image:"masala-tea.png"},
+  {name:"چای ماسالا بدون شکر",price:1480000,image:"sugarfree-masala.png"},
+  {name:"چای کرک",price:1250000,image:"karak-tea.png"}
+];
 
-  const powderProducts = [
-    { name: "کاپوچینو", price: 1350000, image: "cappuccino.png" },
-    { name: "هات چاکلت", price: 1350000, image: "hot-chocolate.png" },
-    { name: "کافی میکس", price: 850000, image: "coffee-mix.png" },
-    { name: "چای ماسالا", price: 1080000, image: "masala-tea.png" },
-    { name: "چای ماسالا بدون شکر", price: 1480000, image: "sugarfree-masala.png" },
-    { name: "چای کرک", price: 1250000, image: "karak-tea.png" }
-  ];
+function node(tag, cls, text) {
+  const el = document.createElement(tag);
+  if(cls) el.className = cls;
+  if(text !== undefined) el.textContent = text;
+  return el;
+}
 
-  function makeOrderLink(productName, weight, roast, total) {
-    const lines = [
-      "سلام، برای سفارش از Sculler Coffee پیام می‌دم.",
-      "محصول: " + productName,
-      roast ? "نوع رست: " + roast : "",
-      "وزن: " + weight + " کیلوگرم",
-      "قیمت نهایی: " + (total === null ? "استعلام قیمت" : toman(total))
-    ].filter(Boolean);
-
-    return SUPPORT_URL + "?text=" + encodeURIComponent(lines.join("\n"));
+function imageOrPlaceholder(src, alt) {
+  const wrap = node("div");
+  if(!src) {
+    wrap.appendChild(node("div","no-image","☕ تصویر موجود نیست"));
+    return wrap;
   }
-
-  function createImage(src, alt) {
-    const image = document.createElement("img");
-    image.className = "product-image";
-    image.src = src;
-    image.alt = alt;
-
-    image.onerror = function () {
-      this.remove();
-    };
-
-    return image;
-  }
-
-  function createCardBase(name, description) {
-    const card = document.createElement("article");
-    card.className = "product";
-    card.dataset.search = (name + " " + (description || "")).toLowerCase();
-
-    const title = document.createElement("h3");
-    title.textContent = name;
-    card.appendChild(title);
-
-    if (description) {
-      const desc = document.createElement("p");
-      desc.className = "product-description";
-      desc.textContent = description;
-      card.appendChild(desc);
-    }
-
-    return card;
-  }
-
-  function addField(card, labelText, options) {
-    const label = document.createElement("label");
-    label.textContent = labelText;
-
-    const select = document.createElement("select");
-    options.forEach(option => {
-      const item = document.createElement("option");
-      item.value = option.value;
-      item.textContent = option.label;
-      select.appendChild(item);
-    });
-
-    label.appendChild(select);
-    card.appendChild(label);
-    return select;
-  }
-
-  function addPriceArea(card) {
-    const area = document.createElement("div");
-    area.className = "price-area";
-    card.appendChild(area);
-    return area;
-  }
-
-  function addPriceLine(area, label, value, final = false) {
-    const line = document.createElement("div");
-    line.className = "price-line";
-
-    const name = document.createElement("span");
-    name.textContent = label;
-
-    const amount = document.createElement("strong");
-    amount.textContent = value;
-    if (final) amount.classList.add("final-price");
-
-    line.append(name, amount);
-    area.appendChild(line);
-  }
-
-  function addOrderButton(card, getOrder) {
-    const button = document.createElement("a");
-    button.className = "order-button";
-    button.target = "_blank";
-    button.rel = "noopener";
-    button.textContent = "🛒 سفارش در تلگرام";
-    button.href = getOrder();
-    card.appendChild(button);
-    return button;
-  }
-
-  function renderGreen() {
-    const root = document.getElementById("green-products");
-
-    greenProducts.forEach(product => {
-      const card = createCardBase(product.name, "دانه سبز · کیسه ۳۰ کیلویی");
-
-      card.insertBefore(
-        createImage(product.image, product.name),
-        card.firstChild
-      );
-
-      const area = addPriceArea(card);
-      addPriceLine(area, "قیمت هر کیلو", toman(product.price));
-      addPriceLine(area, "قیمت کیسه ۳۰ کیلویی", toman(product.price * 30), true);
-
-      addOrderButton(card, () =>
-        makeOrderLink(product.name, 30, "", product.price * 30)
-      );
-
-      root.appendChild(card);
-    });
-  }
-
-  function renderRoasted() {
-    const root = document.getElementById("roasted-products");
-
-    roastedProducts.forEach(product => {
-      const card = createCardBase(product.name, product.category + " · قهوه رست‌شده");
-
-      const roastOptions = Object.entries(product.roasts).map(([name]) => ({
-        value: name,
-        label: name
-      }));
-
-      const roastSelect = addField(card, "درجه رست", roastOptions);
-      const weightSelect = addField(card, "وزن بسته", [
-        { value: "1", label: "۱ کیلوگرم" },
-        { value: "5", label: "۵ کیلوگرم" }
-      ]);
-
-      const imageHolder = document.createElement("div");
-      card.insertBefore(imageHolder, card.firstChild);
-
-      const area = addPriceArea(card);
-      const discountNote = document.createElement("div");
-      discountNote.className = "discount-note";
-      area.appendChild(discountNote);
-
-      let currentTotal = null;
-
-      function update() {
-        const roast = roastSelect.value;
-        const weight = Number(weightSelect.value);
-        const roastInfo = product.roasts[roast];
-        const unitPrice = roastInfo.price;
-
-        imageHolder.replaceChildren();
-        if (roastInfo.image) {
-          imageHolder.appendChild(createImage(roastInfo.image, product.name + " " + roast));
-        }
-
-        area.replaceChildren();
-
-        if (unitPrice === null) {
-          addPriceLine(area, "قیمت هر کیلو", "استعلام قیمت");
-          addPriceLine(area, "قیمت بسته", "استعلام قیمت", true);
-          const note = document.createElement("div");
-          note.className = "discount-note";
-          note.textContent = "برای دریافت قیمت این محصول پیام بده.";
-          area.appendChild(note);
-          currentTotal = null;
-        } else {
-          const subtotal = unitPrice * weight;
-          const discountRate = weight === 5 ? product.discount : 0;
-          currentTotal = Math.round(subtotal * (1 - discountRate / 100));
-
-          addPriceLine(area, "قیمت هر کیلو", toman(unitPrice));
-          addPriceLine(area, "قیمت قبل از تخفیف", toman(subtotal));
-
-          if (discountRate > 0) {
-            addPriceLine(area, "تخفیف بسته", discountRate + "٪");
-            const note = document.createElement("div");
-            note.className = "discount-note";
-            note.textContent = "تخفیف فقط روی بستهٔ ۵ کیلویی اعمال شده است.";
-            area.appendChild(note);
-          }
-
-          addPriceLine(area, "قیمت نهایی", toman(currentTotal), true);
-        }
-
-        orderButton.href = makeOrderLink(product.name, weight, roast, currentTotal);
-      }
-
-      const orderButton = addOrderButton(card, () =>
-        makeOrderLink(product.name, 1, roastSelect.value, currentTotal)
-      );
-
-      roastSelect.addEventListener("change", update);
-      weightSelect.addEventListener("change", update);
-
-      update();
-      root.appendChild(card);
-    });
-  }
-
-  function renderMixes() {
-    const root = document.getElementById("mix-products");
-
-    mixProducts.forEach(product => {
-      const card = createCardBase(product.name, "میکس قهوه");
-
-      const weightSelect = addField(card, "وزن بسته", [
-        { value: "1", label: "۱ کیلوگرم" },
-        { value: "5", label: "۵ کیلوگرم" }
-      ]);
-
-      const area = addPriceArea(card);
-      let currentTotal = product.price;
-
-      function update() {
-        const weight = Number(weightSelect.value);
-        const subtotal = product.price * weight;
-        const discount = weight === 5 ? 2 : 0;
-
-        currentTotal = Math.round(subtotal * (1 - discount / 100));
-        area.replaceChildren();
-
-        addPriceLine(area, "قیمت هر کیلو", toman(product.price));
-        addPriceLine(area, "قیمت قبل از تخفیف", toman(subtotal));
-
-        if (discount) {
-          addPriceLine(area, "تخفیف بسته", "۲٪");
-          const note = document.createElement("div");
-          note.className = "discount-note";
-          note.textContent = "۲٪ تخفیف روی قیمت نهایی بستهٔ ۵ کیلویی";
-          area.appendChild(note);
-        }
-
-        addPriceLine(area, "قیمت نهایی", toman(currentTotal), true);
-        orderButton.href = makeOrderLink(product.name, weight, "", currentTotal);
-      }
-
-      const orderButton = addOrderButton(card, () =>
-        makeOrderLink(product.name, 1, "", currentTotal)
-      );
-
-      weightSelect.addEventListener("change", update);
-      update();
-      root.appendChild(card);
-    });
-  }
-
-  function renderPowders() {
-    const root = document.getElementById("powder-products");
-
-    powderProducts.forEach(product => {
-      const card = createCardBase(product.name, "محصول پودری");
-
-      if (product.image) {
-        card.insertBefore(
-          createImage(product.image, product.name),
-          card.firstChild
-        );
-      }
-
-      const weightSelect = addField(card, "وزن بسته", [
-        { value: "1", label: "۱ کیلوگرم" },
-        { value: "5", label: "۵ کیلوگرم" }
-      ]);
-
-      const area = addPriceArea(card);
-      let currentTotal = product.price;
-
-      function update() {
-        const weight = Number(weightSelect.value);
-        currentTotal = product.price * weight;
-
-        area.replaceChildren();
-        addPriceLine(area, "قیمت هر کیلو", toman(product.price));
-        addPriceLine(area, "قیمت نهایی بسته", toman(currentTotal), true);
-
-        orderButton.href = makeOrderLink(product.name, weight, "", currentTotal);
-      }
-
-      const orderButton = addOrderButton(card, () =>
-        makeOrderLink(product.name, 1, "", currentTotal)
-      );
-
-      weightSelect.addEventListener("change", update);
-      update();
-      root.appendChild(card);
-    });
-  }
-
-  renderGreen();
-  renderRoasted();
-  renderMixes();
-  renderPowders();
-
-  document.getElementById("search").addEventListener("input", function () {
-    const query = this.value.trim().toLowerCase();
-    const cards = document.querySelectorAll(".product");
-    let visibleCount = 0;
-
-    cards.forEach(card => {
-      const match = card.dataset.search.includes(query);
-      card.style.display = match ? "" : "none";
-      if (match) visibleCount++;
-    });
-
-    document.querySelectorAll("details.category").forEach(section => {
-      const hasVisible = [...section.querySelectorAll(".product")]
-        .some(card => card.style.display !== "none");
-
-      if (query && hasVisible) section.open = true;
-    });
-
-    document.getElementById("empty-result").style.display =
-      visibleCount === 0 ? "block" : "none";
+  const img = node("img","product-image");
+  img.src = src;
+  img.alt = alt;
+  img.onerror = function() {
+    const placeholder = node("div","no-image","☕ تصویر موجود نیست");
+    this.replaceWith(placeholder);
+  };
+  wrap.appendChild(img);
+  return wrap;
+}
+
+function field(card, title, choices) {
+  const label = node("label","",title);
+  const select = node("select");
+  choices.forEach(choice => {
+    const option = node("option","",choice.label);
+    option.value = choice.value;
+    select.appendChild(option);
   });
-</script>
+  label.appendChild(select);
+  card.appendChild(label);
+  return select;
+}
 
+function line(box, label, value, final=false) {
+  const row = node("div","price-line");
+  row.appendChild(node("span","",label));
+  row.appendChild(node("strong",final?"final":"",""+value));
+  box.appendChild(row);
+}
+
+function orderUrl(name, weight, roast, total) {
+  const message = [
+    "سلام، برای سفارش از Sculler Coffee پیام می‌دم.",
+    "محصول: " + name,
+    roast ? "نوع رست: " + roast : "",
+    "وزن: " + weight + " کیلوگرم",
+    "قیمت نهایی: " + (total == null ? "استعلام قیمت" : money(total))
+  ].filter(Boolean).join("\n");
+  return SUPPORT + "?text=" + encodeURIComponent(message);
+}
+
+function baseCard(name, description, image) {
+  const card = node("article","product");
+  card.dataset.search = (name+" "+description).toLowerCase();
+  card.appendChild(imageOrPlaceholder(image,name));
+  card.appendChild(node("h3","",name));
+  card.appendChild(node("p","desc",description));
+  return card;
+}
+
+function addOrder(card, name, getData) {
+  const button = node("a","order","🛒 سفارش در تلگرام");
+  button.target = "_blank";
+  button.rel = "noopener";
+  button.href = orderUrl(name,1,"",null);
+  button.addEventListener("click", function(e) {
+    this.href = orderUrl(name,...getData());
+  });
+  card.appendChild(button);
+  return button;
+}
+
+function renderGreen() {
+  const root = document.getElementById("green");
+  greenProducts.forEach(p => {
+    const card = baseCard(p.name,"دانه سبز · کیسه ۳۰ کیلویی",p.image);
+    const prices = node("div","prices");
+    line(prices,"قیمت هر کیلو",money(p.price));
+    line(prices,"قیمت کیسه ۳۰ کیلویی",money(p.price*30),true);
+    card.appendChild(prices);
+    addOrder(card,p.name,()=>[30,"",p.price*30]);
+    root.appendChild(card);
+  });
+}
+
+function renderRoasted() {
+  const root = document.getElementById("roasted");
+  roastedProducts.forEach(p => {
+    const firstRoast = Object.keys(p.roasts)[0];
+    const card = baseCard(p.name,p.kind+" · قهوه رست‌شده",null);
+    const roast = field(card,"درجه رست",Object.keys(p.roasts).map(v=>({value:v,label:v})));
+    const weight = field(card,"وزن بسته",[
+      {value:"1",label:"۱ کیلوگرم"},
+      {value:"5",label:"۵ کیلوگرم"}
+    ]);
+    const prices = node("div","prices");
+    card.appendChild(prices);
+    let total = null;
+
+    function update() {
+      const info = p.roasts[roast.value];
+      const kg = Number(weight.value);
+      const boxImage = card.firstChild;
+      boxImage.replaceWith(imageOrPlaceholder(info.image,p.name+" "+roast.value));
+      prices.replaceChildren();
+
+      if(info.price == null) {
+        line(prices,"قیمت هر کیلو","استعلام قیمت");
+        line(prices,"قیمت نهایی","استعلام قیمت",true);
+        total = null;
+      } else {
+        const subtotal = info.price*kg;
+        const discount = kg===5 ? p.discount : 0;
+        total = Math.round(subtotal*(1-discount/100));
+        line(prices,"قیمت هر کیلو",money(info.price));
+        line(prices,"قیمت قبل از تخفیف",money(subtotal));
+        if(discount) {
+          line(prices,"تخفیف بسته",discount+"٪");
+          prices.appendChild(node("div","discount-note","تخفیف فقط برای بسته ۵ کیلویی"));
+        }
+        line(prices,"قیمت نهایی",money(total),true);
+      }
+      button.href = orderUrl(p.name,kg,roast.value,total);
+    }
+
+    const button = addOrder(card,p.name,()=>[
+      Number(weight.value),roast.value,total
+    ]);
+    roast.addEventListener("change",update);
+    weight.addEventListener("change",update);
+    update();
+    root.appendChild(card);
+  });
+}
+
+function renderMixes() {
+  const root = document.getElementById("mixes");
+  mixProducts.forEach(p => {
+    const card = baseCard(p.name,"میکس قهوه",null);
+    const weight = field(card,"وزن بسته",[
+      {value:"1",label:"۱ کیلوگرم"},
+      {value:"5",label:"۵ کیلوگرم"}
+    ]);
+    const prices = node("div","prices");
+    card.appendChild(prices);
+    let total = p.price;
+    const button = addOrder(card,p.name,()=>[Number(weight.value),"",total]);
+
+    function update() {
+      const kg = Number(weight.value);
+      const subtotal = p.price*kg;
+      const discount = kg===5 ? 2 : 0;
+      total = Math.round(subtotal*(1-discount/100));
+      prices.replaceChildren();
+      line(prices,"قیمت هر کیلو",money(p.price));
+      line(prices,"قیمت قبل از تخفیف",money(subtotal));
+      if(discount) {
+        line(prices,"تخفیف بسته","۲٪");
+        prices.appendChild(node("div","discount-note","تخفیف فقط برای بسته ۵ کیلویی"));
+      }
+      line(prices,"قیمت نهایی",money(total),true);
+      button.href = orderUrl(p.name,kg,"",total);
+    }
+    weight.addEventListener("change",update);
+    update();
+    root.appendChild(card);
+  });
+}
+
+function renderPowders() {
+  const root = document.getElementById("powders");
+  powderProducts.forEach(p => {
+    const card = baseCard(p.name,"محصول پودری",p.image);
+    const weight = field(card,"وزن بسته",[
+      {value:"1",label:"۱ کیلوگرم"},
+      {value:"5",label:"۵ کیلوگرم"}
+    ]);
+    const prices = node("div","prices");
+    card.appendChild(prices);
+    let total = p.price;
+    const button = addOrder(card,p.name,()=>[Number(weight.value),"",total]);
+
+    function update() {
+      const kg = Number(weight.value);
+      total = p.price*kg;
+      prices.replaceChildren();
+      line(prices,"قیمت هر کیلو",money(p.price));
+      line(prices,"قیمت نهایی بسته",money(total),true);
+      button.href = orderUrl(p.name,kg,"",total);
+    }
+    weight.addEventListener("change",update);
+    update();
+    root.appendChild(card);
+  });
+}
+
+renderGreen();
+renderRoasted();
+renderMixes();
+renderPowders();
+
+document.getElementById("search").addEventListener("input",function() {
+  const q = this.value.trim().toLowerCase();
+  let count = 0;
+  document.querySelectorAll(".product").forEach(card => {
+    const show = card.dataset.search.includes(q);
+    card.style.display = show ? "" : "none";
+    if(show) count++;
+  });
+  document.querySelectorAll(".category").forEach(section => {
+    const visible = [...section.querySelectorAll(".product")]
+      .some(card => card.style.display !== "none");
+    if(q && visible) section.open = true;
+  });
+  document.getElementById("empty").style.display = count ? "none" : "block";
+});
+</script>
 </body>
 </html>
