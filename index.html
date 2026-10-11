@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -8,23 +9,30 @@
   <style>
     body {
       margin: 0;
-      padding: 25px 15px;
+      padding: 24px 15px;
       background: #0d1117;
-      color: white;
+      color: #fff;
       font-family: Tahoma, sans-serif;
       text-align: center;
     }
     h1 { color: #58a6ff; }
+    .subtitle { color: #aaa; }
     .card {
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 14px;
-      padding: 24px;
-      margin: 18px auto;
+      padding: 20px;
+      margin: 16px auto;
       max-width: 360px;
+    }
+    .price {
+      color: #3fb950;
+      font-size: 20px;
+      font-weight: bold;
     }
     button {
       padding: 12px 20px;
+      width: 100%;
       border: 0;
       border-radius: 8px;
       background: #238636;
@@ -32,52 +40,56 @@
       font-size: 16px;
       cursor: pointer;
     }
-    #status { color: #58a6ff; }
+    .note { color: #aaa; font-size: 12px; }
   </style>
 </head>
 <body>
   <h1>AT SHOP</h1>
-  <p>فروشگاه دیجیتال تلگرام</p>
+  <p class="subtitle">فروشگاه دیجیتال تلگرام</p>
 
   <div class="card">
     <h3>Telegram Premium</h3>
     <p>خرید اشتراک پریمیوم</p>
-    <button onclick="buy('premium')">خرید پریمیوم</button>
+    <p class="price">قیمت: به‌زودی</p>
+    <button onclick="order('Telegram Premium')">
+      ثبت سفارش
+    </button>
   </div>
 
   <div class="card">
     <h3>Telegram Stars</h3>
-    <p>خرید استارز</p>
-    <button onclick="buy('stars')">خرید استارز</button>
+    <p>خرید استارز تلگرام</p>
+    <p class="price">قیمت: به‌زودی</p>
+    <button onclick="order('Telegram Stars')">
+      ثبت سفارش
+    </button>
   </div>
 
-  <p id="status">یک محصول انتخاب کن.</p>
+  <p class="note">
+    برای اطلاع از قیمت و ثبت سفارش با پشتیبانی در ارتباط باش.
+  </p>
 
   <script>
     const tg = window.Telegram?.WebApp;
+
     if (tg) {
       tg.ready();
       tg.expand();
     }
 
-    function buy(product) {
-      if (!tg || !tg.initData) {
-        document.getElementById('status').textContent =
-          'فروشگاه را از داخل ربات تلگرام باز کن.';
-        return;
+    function order(product) {
+      const url =
+        'https://t.me/Sculler_Support?text=' +
+        encodeURIComponent(
+          'سلام، برای خرید ' + product + ' پیام می‌دم.'
+        );
+
+      if (tg) {
+        tg.openTelegramLink(url);
+      } else {
+        window.open(url, '_blank');
       }
-
-      tg.sendData(JSON.stringify({
-        action: 'buy',
-        product: product
-      }));
-
-      document.getElementById('status').textContent =
-        'درخواست ارسال شد. منتظر پاسخ ربات باش.';
     }
   </script>
 </body>
 </html>
-
-
-
