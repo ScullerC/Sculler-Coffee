@@ -4,70 +4,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AT Shop</title>
+  <title>AT SHOP | فروشگاه دیجیتال</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      padding: 24px 15px;
+      padding: 24px 16px;
       background: #0d1117;
-      color: #fff;
+      color: #f0f6fc;
       font-family: Tahoma, sans-serif;
       text-align: center;
     }
-    h1 { color: #58a6ff; }
-    .subtitle { color: #aaa; }
+
+    header { margin: 20px 0 30px; }
+
+    h1 {
+      color: #58a6ff;
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle { color: #9da7b3; }
+
+    .section-title {
+      margin-top: 30px;
+      color: #58a6ff;
+    }
+
     .card {
       background: #161b22;
       border: 1px solid #30363d;
-      border-radius: 14px;
-      padding: 20px;
-      margin: 16px auto;
-      max-width: 360px;
+      border-radius: 16px;
+      padding: 22px 18px;
+      margin: 15px auto;
+      max-width: 390px;
+      box-shadow: 0 6px 20px #0003;
     }
+
+    .emoji { font-size: 35px; }
+
+    .card h3 {
+      margin: 12px 0;
+      font-size: 19px;
+    }
+
     .price {
       color: #3fb950;
-      font-size: 20px;
+      font-size: 21px;
       font-weight: bold;
+      margin: 18px 0;
     }
+
+    .unit {
+      color: #9da7b3;
+      font-size: 12px;
+    }
+
     button {
-      padding: 12px 20px;
       width: 100%;
+      padding: 13px;
       border: 0;
-      border-radius: 8px;
+      border-radius: 9px;
       background: #238636;
       color: white;
-      font-size: 16px;
+      font-family: inherit;
+      font-size: 15px;
       cursor: pointer;
     }
-    .note { color: #aaa; font-size: 12px; }
+
+    button:active { opacity: .8; }
+
+    footer {
+      color: #8b949e;
+      font-size: 12px;
+      margin: 30px 0 12px;
+      line-height: 2;
+    }
   </style>
 </head>
 <body>
-  <h1>AT SHOP</h1>
-  <p class="subtitle">فروشگاه دیجیتال تلگرام</p>
+
+  <header>
+    <h1>AT SHOP</h1>
+    <p class="subtitle">فروشگاه دیجیتال تلگرام</p>
+    <p>✨ انتخاب کن، سفارش بده!</p>
+  </header>
+
+  <h2 class="section-title">⭐ Telegram Stars</h2>
 
   <div class="card">
-    <h3>Telegram Premium</h3>
-    <p>خرید اشتراک پریمیوم</p>
-    <p class="price">قیمت: به‌زودی</p>
-    <button onclick="order('Telegram Premium')">
+    <div class="emoji">⭐</div>
+    <h3>۵۰ تلگرام استارز</h3>
+    <p class="unit">بسته ۵۰ عددی</p>
+    <p class="price">۲۲۵٬۰۰۰ تومان</p>
+    <button onclick="order('۵۰ تلگرام استارز - ۲۲۵٬۰۰۰ تومان')">
+      ثبت سفارش
+    </button>
+  </div>
+
+  <h2 class="section-title">💎 Telegram Premium</h2>
+
+  <div class="card">
+    <div class="emoji">💎</div>
+    <h3>پریمیوم ۳ ماهه</h3>
+    <p class="price">۳٬۶۵۰٬۰۰۰ تومان</p>
+    <button onclick="order('پریمیوم ۳ ماهه - ۳٬۶۵۰٬۰۰۰ تومان')">
       ثبت سفارش
     </button>
   </div>
 
   <div class="card">
-    <h3>Telegram Stars</h3>
-    <p>خرید استارز تلگرام</p>
-    <p class="price">قیمت: به‌زودی</p>
-    <button onclick="order('Telegram Stars')">
+    <div class="emoji">💎</div>
+    <h3>پریمیوم ۶ ماهه</h3>
+    <p class="price">۴٬۷۵۰٬۰۰۰ تومان</p>
+    <button onclick="order('پریمیوم ۶ ماهه - ۴٬۷۵۰٬۰۰۰ تومان')">
       ثبت سفارش
     </button>
   </div>
 
-  <p class="note">
-    برای اطلاع از قیمت و ثبت سفارش با پشتیبانی در ارتباط باش.
-  </p>
+  <div class="card">
+    <div class="emoji">👑</div>
+    <h3>پریمیوم یک‌ساله</h3>
+    <p class="price">۸٬۲۰۰٬۰۰۰ تومان</p>
+    <button onclick="order('پریمیوم یک‌ساله - ۸٬۲۰۰٬۰۰۰ تومان')">
+      ثبت سفارش
+    </button>
+  </div>
+
+  <footer>
+    قیمت‌ها به تومان هستند.<br>
+    برای ثبت سفارش با پشتیبانی در ارتباط باش.
+  </footer>
 
   <script>
     const tg = window.Telegram?.WebApp;
@@ -78,11 +147,12 @@
     }
 
     function order(product) {
+      const message =
+        'سلام، می‌خوام این محصول رو سفارش بدم:\n' + product;
+
       const url =
         'https://t.me/Sculler_Support?text=' +
-        encodeURIComponent(
-          'سلام، برای خرید ' + product + ' پیام می‌دم.'
-        );
+        encodeURIComponent(message);
 
       if (tg) {
         tg.openTelegramLink(url);
@@ -91,5 +161,6 @@
       }
     }
   </script>
+
 </body>
 </html>
