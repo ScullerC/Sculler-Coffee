@@ -4,141 +4,416 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AT SHOP | فروشگاه دیجیتال</title>
+  <meta name="theme-color" content="#17120f">
+  <meta name="description" content="Sculler Coffee | تجربه‌ای خاص از دنیای قهوه">
+  <title>Sculler Coffee | قهوه، با امضای شما</title>
+
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
   <style>
-    * { box-sizing: border-box; }
+    :root {
+      --bg: #17120f;
+      --panel: #211a15;
+      --gold: #c6a36a;
+      --cream: #f3e9d8;
+      --muted: #a99b89;
+      --border: #403124;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      margin: 0;
-      padding: 24px 16px;
-      background: #0d1117;
-      color: #f0f6fc;
-      font-family: Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--cream);
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.9;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button { font-family: inherit; }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    nav {
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 25px;
+      letter-spacing: 1px;
+      direction: ltr;
+      white-space: nowrap;
+    }
+
+    .nav-link {
+      color: var(--cream);
+      font-size: 13px;
+    }
+
+    .nav-link:hover { color: var(--gold); }
+
+    .hero {
+      min-height: 490px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      padding: 65px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(35px, 5vw, 58px);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .hero h1 span { color: var(--gold); }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 18px 0 28px;
+      max-width: 440px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 4px;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #21170e;
+      font-size: 13px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .hero-image {
+      min-height: 360px;
+      border: 1px solid #6d5030;
+      border-radius: 180px 180px 5px 5px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(0deg, #17120f55, #17120f10),
+        url("https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=85")
+        center / cover;
+    }
+
+    .hero-image::after {
+      content: "SCULLER  •  COFFEE";
+      position: absolute;
+      bottom: 22px;
+      left: 0;
+      right: 0;
       text-align: center;
+      font-family: Georgia, serif;
+      letter-spacing: 4px;
+      color: #fff1d4;
+      font-size: 16px;
+      direction: ltr;
+      text-shadow: 0 2px 12px #000;
     }
 
-    header { margin: 20px 0 30px; }
-
-    h1 {
-      color: #58a6ff;
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    .subtitle { color: #9da7b3; }
-
-    .section-title {
-      margin-top: 30px;
-      color: #58a6ff;
-    }
-
-    .card {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 16px;
-      padding: 22px 18px;
-      margin: 15px auto;
-      max-width: 390px;
-      box-shadow: 0 6px 20px #0003;
-    }
-
-    .emoji { font-size: 35px; }
-
-    .card h3 {
-      margin: 12px 0;
-      font-size: 19px;
-    }
-
-    .price {
-      color: #3fb950;
-      font-size: 21px;
-      font-weight: bold;
+    .divider {
+      width: 55px;
+      height: 2px;
+      background: var(--gold);
       margin: 18px 0;
     }
 
-    .unit {
-      color: #9da7b3;
+    .section {
+      padding: 65px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      font-size: 29px;
+      font-weight: 500;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 7px;
+    }
+
+    .gold-text { color: var(--gold); }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .product-image {
+      height: 175px;
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .product-body { padding: 20px; }
+
+    .product h3 {
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .product p {
+      color: var(--muted);
       font-size: 12px;
+      margin: 8px 0 18px;
+      min-height: 46px;
     }
 
-    button {
-      width: 100%;
-      padding: 13px;
-      border: 0;
-      border-radius: 9px;
-      background: #238636;
-      color: white;
-      font-family: inherit;
+    .product-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .price {
+      color: var(--gold);
       font-size: 15px;
-      cursor: pointer;
+      font-weight: bold;
     }
 
-    button:active { opacity: .8; }
+    .product .btn {
+      width: 100%;
+      padding: 10px;
+    }
+
+    .contact {
+      text-align: center;
+      background: #211a15;
+      border: 1px solid var(--border);
+      padding: 35px 20px;
+      border-radius: 6px;
+    }
+
+    .contact h2 {
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .contact p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 10px 0 22px;
+    }
 
     footer {
-      color: #8b949e;
-      font-size: 12px;
-      margin: 30px 0 12px;
-      line-height: 2;
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    footer .logo {
+      display: inline-block;
+      font-size: 20px;
+      margin-bottom: 7px;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 45px 0;
+      }
+
+      .hero-image {
+        min-height: 300px;
+        grid-row: 1;
+        border-radius: 150px 150px 5px 5px;
+      }
+
+      .hero-copy { text-align: center; }
+      .hero-copy .divider { margin: 18px auto; }
+      .hero-copy p { margin-right: auto; margin-left: auto; }
+
+      .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .section { padding: 45px 0; }
+    }
+
+    @media (max-width: 470px) {
+      .container { width: 92%; }
+      .logo { font-size: 21px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .product-image { height: 210px; }
+      .hero h1 { font-size: 36px; }
     }
   </style>
 </head>
+
 <body>
+  <div class="container">
 
-  <header>
-    <h1>AT SHOP</h1>
-    <p class="subtitle">فروشگاه دیجیتال تلگرام</p>
-    <p>✨ انتخاب کن، سفارش بده!</p>
-  </header>
+    <nav>
+      <a class="logo" href="#">SCULLER COFFEE</a>
+      <a class="nav-link" href="#menu">منوی قهوه</a>
+      <a class="nav-link" href="#contact">ارتباط با ما</a>
+    </nav>
 
-  <h2 class="section-title">⭐ Telegram Stars</h2>
+    <header class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">A BETTER COFFEE EXPERIENCE</div>
+        <h1>
+          هر فنجان،<br>
+          <span>یک تجربه خاص.</span>
+        </h1>
+        <div class="divider"></div>
+        <p>
+          به دنیای Sculler Coffee خوش آمدید؛
+          جایی برای انتخاب قهوه مورد علاقه‌تان،
+          با سلیقه‌ای متفاوت.
+        </p>
+        <a class="btn" href="#menu">مشاهده منو ↙</a>
+      </div>
 
-  <div class="card">
-    <div class="emoji">⭐</div>
-    <h3>۵۰ تلگرام استارز</h3>
-    <p class="unit">بسته ۵۰ عددی</p>
-    <p class="price">۲۲۵٬۰۰۰ تومان</p>
-    <button onclick="order('۵۰ تلگرام استارز - ۲۲۵٬۰۰۰ تومان')">
-      ثبت سفارش
-    </button>
+      <div class="hero-image" role="img"
+           aria-label="تصویر قهوه در فضایی گرم و لوکس"></div>
+    </header>
+
+    <section class="section" id="menu">
+      <div class="section-heading">
+        <div class="eyebrow">OUR SELECTION</div>
+        <h2>منوی <span class="gold-text">قهوه</span></h2>
+        <p>انتخاب خودت رو پیدا کن.</p>
+      </div>
+
+      <div class="menu-grid" id="products"></div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="contact">
+        <div class="eyebrow">YOUR NEXT CUP STARTS HERE</div>
+        <h2>آماده سفارش هستی؟</h2>
+        <p>
+          برای ثبت سفارش، استعلام موجودی و دریافت راهنمایی
+          با ما در تلگرام در ارتباط باش.
+        </p>
+        <a class="btn btn-outline"
+           href="https://t.me/Sculler_Support"
+           target="_blank" rel="noopener">
+          ارتباط با پشتیبانی ↗
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="logo">SCULLER COFFEE</div>
+      <div>قهوه خوب، انتخابی شخصی است.</div>
+      <div>© Sculler Coffee</div>
+    </footer>
+
   </div>
-
-  <h2 class="section-title">💎 Telegram Premium</h2>
-
-  <div class="card">
-    <div class="emoji">💎</div>
-    <h3>پریمیوم ۳ ماهه</h3>
-    <p class="price">۳٬۶۵۰٬۰۰۰ تومان</p>
-    <button onclick="order('پریمیوم ۳ ماهه - ۳٬۶۵۰٬۰۰۰ تومان')">
-      ثبت سفارش
-    </button>
-  </div>
-
-  <div class="card">
-    <div class="emoji">💎</div>
-    <h3>پریمیوم ۶ ماهه</h3>
-    <p class="price">۴٬۷۵۰٬۰۰۰ تومان</p>
-    <button onclick="order('پریمیوم ۶ ماهه - ۴٬۷۵۰٬۰۰۰ تومان')">
-      ثبت سفارش
-    </button>
-  </div>
-
-  <div class="card">
-    <div class="emoji">👑</div>
-    <h3>پریمیوم یک‌ساله</h3>
-    <p class="price">۸٬۲۰۰٬۰۰۰ تومان</p>
-    <button onclick="order('پریمیوم یک‌ساله - ۸٬۲۰۰٬۰۰۰ تومان')">
-      ثبت سفارش
-    </button>
-  </div>
-
-  <footer>
-    قیمت‌ها به تومان هستند.<br>
-    برای ثبت سفارش با پشتیبانی در ارتباط باش.
-  </footer>
 
   <script>
+    // برای تغییر نام، توضیحات و قیمت محصولات، فقط این قسمت را ویرایش کن.
+    // قیمت‌ها فعلاً نمونه هستند و باید با قیمت واقعی جایگزین شوند.
+
+    const products = [
+      {
+        name: "اسپرسو",
+        description: "طعم غلیظ و اصیل قهوه، با عطری ماندگار.",
+        price: "قیمت را وارد کنید",
+        image: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        name: "آمریکانو",
+        description: "قهوه‌ای متعادل برای لحظه‌های آرام روز.",
+        price: "قیمت را وارد کنید",
+        image: "https://images.unsplash.com/photo-1497515114629-f71d768fd07c?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        name: "لاته",
+        description: "ترکیب لطیف اسپرسو و شیر با بافتی نرم.",
+        price: "قیمت را وارد کنید",
+        image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        name: "کاپوچینو",
+        description: "تعادل دلنشین قهوه و فوم شیر.",
+        price: "قیمت را وارد کنید",
+        image: "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        name: "موکا",
+        description: "ترکیبی دلچسب برای دوست‌داران قهوه و شکلات.",
+        price: "قیمت را وارد کنید",
+        image: "https://images.unsplash.com/photo-1578374173705-969cbe6f2d6b?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        name: "آیس کافی",
+        description: "انتخابی خنک برای روزهای گرم و پرانرژی.",
+        price: "قیمت را وارد کنید",
+        image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80"
+      }
+    ];
+
+    const supportUsername = "Sculler_Support";
+    const container = document.getElementById("products");
+
     const tg = window.Telegram?.WebApp;
 
     if (tg) {
@@ -146,21 +421,48 @@
       tg.expand();
     }
 
-    function order(product) {
-      const message =
-        'سلام، می‌خوام این محصول رو سفارش بدم:\n' + product;
+    function renderProducts() {
+      container.innerHTML = products.map((product, index) => `
+        <article class="product">
+          <div class="product-image"
+            style="background-image:url('${product.image}')"
+            role="img"
+            aria-label="${product.name}">
+          </div>
+          <div class="product-body">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <div class="product-bottom">
+              <div class="price">${product.price}</div>
+              <button class="btn"
+                onclick="orderProduct(${index})">
+                سفارش این محصول
+              </button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
 
-      const url =
-        'https://t.me/Sculler_Support?text=' +
-        encodeURIComponent(message);
+    function orderProduct(index) {
+      const product = products[index];
+
+      const message =
+        "سلام، از Sculler Coffee سفارش دارم.\n" +
+        "محصول: " + product.name + "\n" +
+        "قیمت درج‌شده: " + product.price;
+
+      const url = "https://t.me/" + supportUsername +
+        "?text=" + encodeURIComponent(message);
 
       if (tg) {
         tg.openTelegramLink(url);
       } else {
-        window.open(url, '_blank');
+        window.open(url, "_blank", "noopener");
       }
     }
-  </script>
 
+    renderProducts();
+  </script>
 </body>
 </html>
