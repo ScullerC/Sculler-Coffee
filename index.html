@@ -30,7 +30,7 @@ button,input,select{font:inherit}
 .container{width:min(1080px,92%);margin:auto}
 
 header{
-  text-align:center;padding:30px 0 24px;
+  text-align:center;padding:28px 0 23px;
   border-bottom:1px solid var(--border)
 }
 .logo{
@@ -40,7 +40,7 @@ header{
 .brand{margin:0;color:var(--gold);font-size:28px;font-weight:800}
 .tagline{color:var(--muted);font-size:12px;margin:3px 0}
 
-.hero{text-align:center;padding:35px 0 24px}
+.hero{text-align:center;padding:34px 0 24px}
 .hero h2{font-size:clamp(23px,5vw,34px);margin:0 0 5px}
 .hero p{font-size:13px;color:var(--muted);margin:0}
 
@@ -52,7 +52,6 @@ header{
 }
 .search:focus{border-color:var(--gold)}
 
-.catalog{padding:5px 0 40px}
 .category{
   margin:14px 0;border:1px solid var(--border);
   border-radius:15px;background:var(--card);overflow:hidden
@@ -67,9 +66,8 @@ header{
   content:'+';color:var(--gold);font-size:25px;font-weight:400
 }
 .category[open] summary:after{content:'−'}
-.category summary small{
-  color:var(--muted);font-size:11px;font-weight:400
-}
+.category summary small{color:var(--muted);font-size:11px;font-weight:400}
+
 .products{
   padding:0 14px 15px;display:grid;
   grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:13px
@@ -80,12 +78,12 @@ header{
 }
 .product h3{font-size:15px;margin:0 0 7px}
 .product-image{
-  display:block;width:100%;height:150px;object-fit:contain;
+  display:block;width:100%;height:165px;object-fit:contain;
   margin:0 auto 12px;border-radius:8px
 }
 .product-symbol{
-  height:65px;display:flex;align-items:center;justify-content:center;
-  font-size:35px;color:var(--gold)
+  height:165px;display:flex;align-items:center;justify-content:center;
+  font-size:45px;color:var(--gold)
 }
 .field{margin-top:10px}
 .field label{
@@ -107,7 +105,7 @@ header{
 .empty{display:none;text-align:center;color:var(--muted);padding:20px}
 
 .contact{
-  padding:30px 0;background:#19110d;
+  margin-top:30px;padding:30px 0;background:#19110d;
   border-top:1px solid var(--border)
 }
 .contact h2{text-align:center;font-size:22px;margin:0 0 18px}
@@ -143,6 +141,7 @@ footer{text-align:center;color:var(--muted);padding:18px;font-size:11px}
 </header>
 
 <main class="container">
+
   <section class="hero">
     <h2>قهوه‌ای برای سلیقه‌ی تو ☕</h2>
     <p>محصولت را انتخاب کن، قیمت را ببین و سفارش بده.</p>
@@ -161,7 +160,7 @@ footer{text-align:center;color:var(--muted);padding:18px;font-size:11px}
 
     <details class="category">
       <summary>
-        <span>☕ قهوه رُست‌شده <small>مدیوم و دارک</small></span>
+        <span>☕ قهوه رُست‌شده <small>انتخاب مدیوم یا دارک</small></span>
       </summary>
       <div class="products" id="roasted"></div>
     </details>
@@ -177,6 +176,7 @@ footer{text-align:center;color:var(--muted);padding:18px;font-size:11px}
     </details>
 
     <p class="empty" id="empty">محصولی پیدا نشد.</p>
+
   </section>
 </main>
 
@@ -202,7 +202,9 @@ footer{text-align:center;color:var(--muted);padding:18px;font-size:11px}
 
       <a class="contact-item" href="https://t.me/Sculler_Support" target="_blank" rel="noopener">
         <span class="contact-icon">✈️</span>
-        <span>پشتیبانی تلگرام<small>پشتیبانی ۲۴ ساعته | @Sculler_Support</small></span>
+        <span>پشتیبانی تلگرام
+          <small>پشتیبانی ۲۴ ساعته | @Sculler_Support</small>
+        </span>
       </a>
 
       <a class="contact-item" href="https://t.me/Sculler_Coffee" target="_blank" rel="noopener">
@@ -212,7 +214,7 @@ footer{text-align:center;color:var(--muted);padding:18px;font-size:11px}
 
       <a class="contact-item" href="https://wa.me/ArmanTajdini" target="_blank" rel="noopener">
         <span class="contact-icon">💬</span>
-        <span>واتساپ<small>@ArmanTajdini</small></span>
+        <span>واتساپ<small>ارتباط با ما</small></span>
       </a>
 
     </div>
@@ -222,55 +224,75 @@ footer{text-align:center;color:var(--muted);padding:18px;font-size:11px}
 <footer>© Sculler Coffee</footer>
 
 <script>
-/* تمام قیمت‌ها به تومان هستند.
-   برای تغییر قیمت‌ها، فقط همین اطلاعات را ویرایش کن. */
+/* قیمت‌ها به تومان هستند.
+   محصولات و قیمت‌ها را از همین قسمت می‌توانی ویرایش کنی. */
 
 const greenCoffee = [
-  {name:"روبوستا چری PB", price:1680000},
-  {name:"روبوستا چری AA", price:1800000},
-  {name:"عربیکا پلنتیشن AA", price:3300000}
+  {
+    name:"روبوستا پی بی",
+    price:1680000,
+    image:"GR-PB.jpg"
+  },
+  {
+    name:"روبوستا چری AA",
+    price:1800000,
+    image:"GR-AA.jpg"
+  },
+  {
+    name:"عربیکا پلنتیشن",
+    price:3300000,
+    image:"GR-PL.jpg"
+  }
 ];
 
 const roastedCoffee = [
-  {name:"روبوستا چری PB", medium:2250000, dark:2300000, discount:2},
-  {name:"روبوستا چری AA", medium:2400000, dark:2450000, discount:2},
-  {name:"روبوستا ویتنام", medium:2200000, dark:2225000, discount:2},
-  {name:"روبوستا اندونزی", medium:3465000, dark:3500000, discount:2},
-
-  {name:"عربیکا ریومیناس", medium:3250000, discount:3},
-  {name:"عربیکا سانتوس", medium:4300000, discount:3},
-  {name:"عربیکا اتیوپی", medium:3675000, discount:3},
-  {name:"عربیکا کلمبیا", medium:5300000, discount:3},
-  {name:"عربیکا نیکاراگوئه", medium:5350000, discount:3},
-  {name:"عربیکا گواتمالا", medium:5350000, discount:3}
+  {
+    name:"روبوستا پی بی",
+    medium:2250000,
+    dark:2300000,
+    discount:2,
+    images:{medium:"RO-PB-M.jpg",dark:"RO-PB-D.jpg"}
+  },
+  {
+    name:"روبوستا چری AA",
+    medium:2400000,
+    dark:2450000,
+    discount:2,
+    images:{medium:"RO-AA-M.jpg",dark:"RO-AA-D.jpg"}
+  },
+  {
+    name:"عربیکا پلنتیشن",
+    medium:3300000,
+    discount:3,
+    images:{medium:"AR-PL-M.jpg"}
+  }
 ];
 
 const blends = [
-  {name:"۱۰۰٪ روبوستا", price:2470000},
-  {name:"۷۰٪ روبوستا", price:2900000},
-  {name:"۵۰/۵۰ اقتصادی", price:3200000},
-  {name:"۵۰/۵۰ ویژه", price:3780000},
-  {name:"۷۰٪ عربیکا اقتصادی", price:3780000},
-  {name:"۷۰٪ عربیکا ویژه", price:4100000},
-  {name:"۱۰۰٪ عربیکا اقتصادی", price:4100000},
-  {name:"۱۰۰٪ عربیکا ویژه", price:4500000}
+  {name:"۱۰۰٪ روبوستا",price:2470000},
+  {name:"۷۰٪ روبوستا",price:2900000},
+  {name:"۵۰/۵۰ اقتصادی",price:3200000},
+  {name:"۵۰/۵۰ ویژه",price:3780000},
+  {name:"۷۰٪ عربیکا اقتصادی",price:3780000},
+  {name:"۷۰٪ عربیکا ویژه",price:4100000},
+  {name:"۱۰۰٪ عربیکا اقتصادی",price:4100000},
+  {name:"۱۰۰٪ عربیکا ویژه",price:4500000}
 ];
 
 const powders = [
-  {name:"کاپوچینو", image:"cappuccino.png", price:1350000},
-  {name:"هات چاکلت", image:"hot-chocolate.png", price:1350000},
-  {name:"کافی‌میکس", image:"coffee-mix.png", price:850000},
-  {name:"چای ماسالا", image:"masala-tea.png", price:1080000},
-  {name:"ماسالا بدون قند", image:"sugarfree-masala.png", price:1480000},
-  {name:"چای کرک", image:"karak-tea.png", price:1250000}
+  {name:"کاپوچینو",image:"cappuccino.png",price:1350000},
+  {name:"هات چاکلت",image:"hot-chocolate.png",price:1350000},
+  {name:"کافی‌میکس",image:"coffee-mix.png",price:850000},
+  {name:"چای ماسالا",image:"masala-tea.png",price:1080000},
+  {name:"ماسالا بدون قند",image:"sugarfree-masala.png",price:1480000},
+  {name:"چای کرک",image:"karak-tea.png",price:1250000}
 ];
 
 const supportUsername = "Sculler_Support";
-
 const fmt = n => new Intl.NumberFormat("fa-IR").format(n);
 const money = n => fmt(n) + " تومان";
 
-function selectField(label, options) {
+function createSelect(label, options) {
   const wrapper = document.createElement("div");
   wrapper.className = "field";
 
@@ -286,30 +308,14 @@ function selectField(label, options) {
     select.appendChild(option);
   });
 
-  wrapper.append(caption, select);
-  return {wrapper, select};
+  wrapper.append(caption,select);
+  return {wrapper,select};
 }
 
-function makeCard(product, type) {
+function createCard(product,type) {
   const card = document.createElement("article");
   card.className = "product";
   card.dataset.name = product.name.toLowerCase();
-
-  if (product.image) {
-    const img = document.createElement("img");
-    img.className = "product-image";
-    img.src = "./" + product.image;
-    img.alt = product.name;
-    img.loading = "lazy";
-    img.onerror = () => img.hidden = true;
-    card.appendChild(img);
-  } else {
-    const symbol = document.createElement("div");
-    symbol.className = "product-symbol";
-    symbol.textContent = type === "green" ? "🌿" :
-                         type === "mix" ? "🫘" : "☕";
-    card.appendChild(symbol);
-  }
 
   const title = document.createElement("h3");
   title.textContent = product.name;
@@ -317,29 +323,72 @@ function makeCard(product, type) {
 
   let roastField = null;
   let weightField = null;
+  let image = null;
 
-  if (type === "green") {
+  if(type === "roasted") {
+    const options = product.dark == null
+      ? [{label:"مدیوم",value:"medium"}]
+      : [
+          {label:"مدیوم",value:"medium"},
+          {label:"دارک",value:"dark"}
+        ];
+
+    roastField = createSelect("درجه رُست",options);
+    card.appendChild(roastField.wrapper);
+  }
+
+  if(product.image || product.images) {
+    image = document.createElement("img");
+    image.className = "product-image";
+    image.alt = product.name;
+    image.loading = "lazy";
+
+    image.onerror = function() {
+      this.hidden = true;
+    };
+
+    card.insertBefore(image,title);
+
+    function updateImage() {
+      let filename = product.image;
+
+      if(product.images) {
+        filename = product.images[
+          roastField ? roastField.select.value : "medium"
+        ];
+      }
+
+      if(filename) {
+        image.src = "./" + filename;
+        image.hidden = false;
+      } else {
+        image.hidden = true;
+      }
+    }
+
+    updateImage();
+
+    if(roastField) {
+      roastField.select.addEventListener("change",updateImage);
+    }
+  } else {
+    const symbol = document.createElement("div");
+    symbol.className = "product-symbol";
+    symbol.textContent = type === "green" ? "🌿" :
+                         type === "mix" ? "🫘" : "☕";
+    card.insertBefore(symbol,title);
+  }
+
+  if(type === "green") {
     const price = document.createElement("div");
     price.className = "price";
     price.innerHTML =
-      "قیمت هر کیلو: " + money(product.price) +
-      "<small>کیسه ۳۰ کیلویی با لایه GreenPro</small>" +
+      "هر کیلو: " + money(product.price) +
+      "<small>کیسه ۳۰ کیلویی</small>" +
       "<small>قیمت هر کیسه: " + money(product.price * 30) + "</small>";
     card.appendChild(price);
   } else {
-    if (type === "roasted") {
-      const roasts = product.dark == null
-        ? [{label:"مدیوم",value:"medium"}]
-        : [
-            {label:"مدیوم",value:"medium"},
-            {label:"دارک",value:"dark"}
-          ];
-
-      roastField = selectField("درجه رُست", roasts);
-      card.appendChild(roastField.wrapper);
-    }
-
-    weightField = selectField("وزن بسته", [
+    weightField = createSelect("وزن بسته",[
       {label:"۱ کیلوگرم",value:"1"},
       {label:"۵ کیلوگرم",value:"5"}
     ]);
@@ -349,58 +398,58 @@ function makeCard(product, type) {
     price.className = "price";
     card.appendChild(price);
 
-    function getPrice() {
+    function calculate() {
       const weight = Number(weightField.select.value);
-      let unitPrice;
+      const unitPrice = type === "roasted"
+        ? product[roastField.select.value]
+        : product.price;
 
-      if (type === "roasted") {
-        unitPrice = product[roastField.select.value];
-      } else {
-        unitPrice = product.price;
-      }
-
-      const discount = type === "powder" ? 0 :
-                       (product.discount ?? 2);
+      const discount = type === "powder"
+        ? 0
+        : (product.discount ?? 2);
 
       return {
-        total: Math.round(unitPrice * weight *
-          (1 - discount / 100)),
+        weight,
         discount,
-        weight
+        total:Math.round(unitPrice * weight *
+          (1 - (weight === 5 ? discount : 0)/100))
       };
     }
 
     function updatePrice() {
-      const result = getPrice();
-
+      const result = calculate();
       price.replaceChildren();
 
-      const main = document.createElement("span");
-      main.textContent = "قیمت نهایی: " + money(result.total);
-      price.appendChild(main);
+      const line = document.createElement("span");
+      line.textContent = "قیمت نهایی: " + money(result.total);
+      price.appendChild(line);
 
       const note = document.createElement("small");
-      if (type === "powder") {
-        note.textContent = "بدون تخفیف";
+
+      if(type === "powder") {
+        note.textContent = "قیمت بر اساس وزن انتخابی";
+      } else if(result.weight === 5) {
+        note.textContent = result.discount + "٪ تخفیف بسته ۵ کیلویی";
       } else {
-        note.textContent = result.weight === 5
-          ? result.discount + "٪ تخفیف برای بسته ۵ کیلویی"
-          : "قیمت بسته ۱ کیلویی";
+        note.textContent = "قیمت بسته ۱ کیلویی";
       }
+
       price.appendChild(note);
     }
 
-    roastField?.select.addEventListener("change", updatePrice);
-    weightField.select.addEventListener("change", updatePrice);
+    weightField.select.addEventListener("change",updatePrice);
+    if(roastField) {
+      roastField.select.addEventListener("change",updatePrice);
+    }
     updatePrice();
 
     const button = document.createElement("button");
-    button.type = "button";
     button.className = "order";
+    button.type = "button";
     button.textContent = "سفارش در تلگرام";
 
-    button.addEventListener("click", () => {
-      const result = getPrice();
+    button.addEventListener("click",() => {
+      const result = calculate();
       const roast = roastField
         ? roastField.select.options[roastField.select.selectedIndex].text
         : "";
@@ -424,13 +473,13 @@ function makeCard(product, type) {
     card.appendChild(button);
   }
 
-  if (type === "green") {
+  if(type === "green") {
     const button = document.createElement("button");
-    button.type = "button";
     button.className = "order";
+    button.type = "button";
     button.textContent = "سفارش در تلگرام";
 
-    button.addEventListener("click", () => {
+    button.addEventListener("click",() => {
       const message = [
         "سلام، برای سفارش از Sculler Coffee پیام می‌دهم.",
         "محصول: " + product.name,
@@ -452,31 +501,31 @@ function makeCard(product, type) {
   return card;
 }
 
-function render() {
+function renderProducts() {
   const groups = [
-    ["green", greenCoffee, "green"],
-    ["roasted", roastedCoffee, "roasted"],
-    ["mixes", blends, "mix"],
-    ["powders", powders, "powder"]
+    ["green",greenCoffee,"green"],
+    ["roasted",roastedCoffee,"roasted"],
+    ["mixes",blends,"mix"],
+    ["powders",powders,"powder"]
   ];
 
-  groups.forEach(([id, products, type]) => {
+  groups.forEach(([id,products,type]) => {
     const target = document.getElementById(id);
     target.replaceChildren();
 
     products.forEach(product => {
-      target.appendChild(makeCard(product, type));
+      target.appendChild(createCard(product,type));
     });
   });
 }
 
-document.getElementById("search").addEventListener("input", event => {
+document.getElementById("search").addEventListener("input",event => {
   const query = event.target.value.trim().toLowerCase();
   let count = 0;
 
   document.querySelectorAll(".product").forEach(card => {
     card.hidden = !card.dataset.name.includes(query);
-    if (!card.hidden) count++;
+    if(!card.hidden) count++;
   });
 
   document.querySelectorAll(".category").forEach(category => {
@@ -484,14 +533,15 @@ document.getElementById("search").addEventListener("input", event => {
       .some(card => !card.hidden);
 
     category.hidden = !hasResults;
-    if (query && hasResults) category.open = true;
+
+    if(query && hasResults) category.open = true;
   });
 
   document.getElementById("empty").style.display =
     count ? "none" : "block";
 });
 
-render();
+renderProducts();
 </script>
 
 </body>
