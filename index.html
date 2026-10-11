@@ -2,286 +2,822 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#17120f">
-<meta name="description" content="Sculler Coffee | فروش دانه و پودر قهوه">
-<title>Sculler Coffee | قهوه با امضای شما</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171b16">
+  <meta name="description" content="خرید عمده دانه سبز و قهوه رست‌شده Sculler Coffee">
+  <title>Sculler Coffee | فروش تخصصی قهوه</title>
 
-<style>
-:root {
-  --bg:#17120f;
-  --panel:#241b15;
-  --gold:#c6a36a;
-  --cream:#f3e9d8;
-  --muted:#b7a895;
-  --border:#453426;
-}
-* {box-sizing:border-box;margin:0;padding:0}
-html {scroll-behavior:smooth}
-body {
-  background:var(--bg);
-  color:var(--cream);
-  font-family:Tahoma,Arial,sans-serif;
-  line-height:1.9;
-}
-a {color:inherit;text-decoration:none}
-button,select {font-family:inherit}
-.container {width:min(1100px,92%);margin:auto}
-nav {
-  min-height:90px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  border-bottom:1px solid var(--border);
-}
-.brand {display:flex;align-items:center;gap:12px}
-.brand img {
-  width:65px;height:65px;object-fit:contain;
-}
-.brand-name {
-  color:var(--gold);
-  font: bold 21px Georgia,serif;
-  direction:ltr;
-  letter-spacing:1px;
-}
-.nav-link {font-size:13px}
-.nav-link:hover {color:var(--gold)}
-.hero {
-  min-height:440px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:center;
-  gap:40px;
-  padding:55px 0;
-}
-.eyebrow {
-  color:var(--gold);
-  font-size:11px;
-  letter-spacing:2px;
-  margin-bottom:14px;
-}
-h1 {font-size:clamp(32px,5vw,54px);line-height:1.6;font-weight:500}
-.gold {color:var(--gold)}
-.hero p {color:var(--muted);font-size:14px;margin:18px 0 25px}
-.btn {
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  padding:11px 18px;
-  border:1px solid var(--gold);
-  border-radius:4px;
-  background:var(--gold);
-  color:#21170e;
-  font-size:13px;
-  cursor:pointer;
-}
-.btn:hover {background:transparent;color:var(--gold)}
-.hero-image {
-  min-height:350px;
-  border:1px solid #6d5030;
-  border-radius:160px 160px 5px 5px;
-  background:
-    linear-gradient(#17120f22,#17120f55),
-    url("https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=1000&q=85")
-    center/cover;
-}
-.section {padding:55px 0;border-top:1px solid var(--border)}
-.section-heading {text-align:center;margin-bottom:30px}
-.section-heading h2 {font-size:28px;font-weight:500}
-.section-heading p {font-size:13px;color:var(--muted);margin-top:5px}
-.grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.product {
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:7px;
-  overflow:hidden;
-}
-.product-image {
-  height:205px;
-  background-size:cover;
-  background-position:center;
-}
-.product-body {padding:19px}
-.product h3 {font-size:18px;font-weight:500}
-.description {font-size:12px;color:var(--muted);margin:7px 0 15px;min-height:44px}
-.price {color:var(--gold);font-size:14px;font-weight:bold;margin-bottom:12px}
-.field {margin:12px 0}
-.field label {display:block;font-size:12px;color:var(--muted);margin-bottom:5px}
-.field select {
-  width:100%;
-  padding:10px;
-  background:#17120f;
-  color:var(--cream);
-  border:1px solid var(--border);
-  border-radius:4px;
-}
-.product .btn {width:100%;margin-top:8px}
-.contact {
-  text-align:center;
-  padding:32px 18px;
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:6px;
-}
-.contact p {color:var(--muted);font-size:13px;margin:10px 0 20px}
-footer {text-align:center;padding:25px 0;color:var(--muted);font-size:11px}
-footer img {width:55px;height:55px;object-fit:contain;display:block;margin:0 auto 5px}
-@media(max-width:760px) {
-  .hero {grid-template-columns:1fr;gap:25px;padding:35px 0}
-  .hero-image {grid-row:1;min-height:280px}
-  .hero-copy {text-align:center}
-  .grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-  .product-body {padding:13px}
-  .product-image {height:155px}
-}
-@media(max-width:470px) {
-  .brand img {width:48px;height:48px}
-  .brand-name {font-size:16px}
-  nav {gap:8px}
-  .nav-link {font-size:11px}
-  .grid {grid-template-columns:1fr}
-  .product-image {height:220px}
-}
-</style>
+  <style>
+    :root {
+      --bg: #11140f;
+      --surface: #1b2019;
+      --surface2: #242a21;
+      --cream: #f3eddf;
+      --muted: #b6b6a8;
+      --green: #b5c58a;
+      --green-dark: #303c27;
+      --border: rgba(243,237,223,.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.9;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, select { font: inherit; }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(17,20,15,.95);
+    }
+
+    .navbar {
+      min-height: 86px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .brand-name {
+      font-size: 19px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    .hero {
+      padding: 82px 0 68px;
+      background:
+        radial-gradient(ellipse at 15% 20%, rgba(181,197,138,.12), transparent 48%),
+        var(--bg);
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--green);
+      border: 1px solid rgba(181,197,138,.35);
+      padding: 4px 13px;
+      border-radius: 30px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    h1 span { color: var(--green); }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 600px;
+      font-size: 15px;
+      margin-bottom: 27px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: #171b16;
+      border: none;
+      border-radius: 9px;
+      padding: 11px 19px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: #d0dda9;
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid var(--border);
+    }
+
+    .button-outline:hover {
+      color: var(--cream);
+      background: var(--surface2);
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 48px;
+    }
+
+    .benefit {
+      padding: 18px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .benefit strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .benefit span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    section.catalog {
+      padding: 55px 0 75px;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      margin-bottom: 26px;
+    }
+
+    .section-heading small {
+      color: var(--green);
+      font-size: 12px;
+      letter-spacing: 1px;
+      direction: ltr;
+      display: inline-block;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(25px, 4vw, 34px);
+      margin: 4px 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .category-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 25px 0 30px;
+    }
+
+    .tab {
+      padding: 9px 17px;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background: var(--green);
+      color: #171b16;
+      border-color: var(--green);
+      font-weight: bold;
+    }
+
+    .subheading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 34px 0 17px;
+      font-size: 19px;
+    }
+
+    .subheading::after {
+      content: "";
+      height: 1px;
+      background: var(--border);
+      flex: 1;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .product-card:hover {
+      border-color: rgba(181,197,138,.5);
+      transform: translateY(-3px);
+    }
+
+    .product-top {
+      padding: 22px 20px 16px;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(181,197,138,.1), transparent 45%),
+        var(--surface2);
+      min-height: 125px;
+    }
+
+    .product-type {
+      display: inline-block;
+      font-size: 10px;
+      color: var(--green);
+      border: 1px solid rgba(181,197,138,.28);
+      padding: 2px 9px;
+      border-radius: 30px;
+      margin-bottom: 9px;
+    }
+
+    .product-top h3 {
+      font-size: 17px;
+      direction: ltr;
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .product-top .persian-name {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .product-body {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .details {
+      list-style: none;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .details li { margin-bottom: 5px; }
+    .details li::before {
+      content: "•";
+      color: var(--green);
+      margin-left: 7px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 12px;
+      margin: 10px 0 6px;
+      color: var(--muted);
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      color: var(--cream);
+      background: #151912;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+    }
+
+    select:focus { border-color: var(--green); }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 19px 0 15px;
+      padding-top: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    .price-row span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .price-row strong {
+      color: var(--green);
+      font-size: 13px;
+    }
+
+    .order-button {
+      width: 100%;
+      margin-top: auto;
+      font-size: 13px;
+    }
+
+    .empty-note {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 14px 0;
+    }
+
+    .info-banner {
+      margin-top: 30px;
+      border: 1px solid rgba(181,197,138,.25);
+      background: rgba(181,197,138,.06);
+      padding: 20px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .info-banner strong { color: var(--green); }
+
+    .contact {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+      background: #171b15;
+    }
+
+    .contact-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .contact h2 { font-size: 24px; margin-bottom: 6px; }
+    .contact p { color: var(--muted); font-size: 13px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 22px 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      direction: ltr;
+    }
+
+    .footer-brand img {
+      width: 35px;
+      height: 35px;
+      border-radius: 7px;
+      object-fit: cover;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 800px) {
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero { padding-top: 55px; }
+    }
+
+    @media (max-width: 560px) {
+      .navbar { min-height: 72px; }
+      .brand img { width: 44px; height: 44px; }
+      .brand-name { font-size: 16px; }
+      .nav-links { gap: 12px; font-size: 11px; }
+      .benefits { grid-template-columns: 1fr; gap: 9px; margin-top: 32px; }
+      .benefit { padding: 13px 16px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .product-top { min-height: auto; }
+      .contact-inner { align-items: flex-start; flex-direction: column; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .hero p { font-size: 14px; }
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
+  <header>
+    <div class="container navbar">
+      <a href="#" class="brand" aria-label="Sculler Coffee">
+        <img src="IMG_20261011_111405_141.jpg"
+             alt="Sculler Coffee Logo">
+        <div>
+          <div class="brand-name">SCULLER COFFEE</div>
+          <div class="brand-sub">Specialty Coffee Supply</div>
+        </div>
+      </a>
 
-<nav>
-  <a class="brand" href="#">
-    <img src="IMG_20261011_111405_141.jpg" alt="لوگوی Sculler Coffee">
-    <span class="brand-name">SCULLER COFFEE</span>
-  </a>
-  <a class="nav-link" href="#products">محصولات</a>
-  <a class="nav-link" href="#contact">ارتباط با ما</a>
-</nav>
-
-<header class="hero">
-  <div class="hero-copy">
-    <div class="eyebrow">SELECTED COFFEE • SCULLER</div>
-    <h1>قهوه‌ای که<br><span class="gold">با سلیقه تو شروع می‌شود.</span></h1>
-    <p>
-      انتخاب دانه یا پودر قهوه، متناسب با روش دم‌آوری و ذائقه شما.
-      کیفیت را انتخاب کن و سفارش خودت را ثبت کن.
-    </p>
-    <a class="btn" href="#products">مشاهده محصولات ↓</a>
-  </div>
-  <div class="hero-image" role="img" aria-label="دانه‌های قهوه"></div>
-</header>
-
-<section class="section" id="products">
-  <div class="section-heading">
-    <div class="eyebrow">OUR COFFEE COLLECTION</div>
-    <h2>مجموعه <span class="gold">قهوه‌ها</span></h2>
-    <p>نوع قهوه، وزن و میزان آسیاب را انتخاب کن.</p>
-  </div>
-  <div class="grid" id="product-list"></div>
-</section>
-
-<section class="section" id="contact">
-  <div class="contact">
-    <div class="eyebrow">SCULLER COFFEE</div>
-    <h2>برای سفارش آماده‌ای؟</h2>
-    <p>برای قیمت، موجودی و ثبت سفارش از طریق تلگرام با ما در ارتباط باش.</p>
-    <a class="btn" href="https://t.me/Sculler_Support" target="_blank" rel="noopener">
-      ارتباط با پشتیبانی ↗
-    </a>
-  </div>
-</section>
-
-<footer>
-  <img src="IMG_20261011_111405_141.jpg" alt="Sculler Coffee">
-  <div class="brand-name">SCULLER COFFEE</div>
-  <div>قهوه خوب، انتخابی شخصی است.</div>
-  <div>© Sculler Coffee</div>
-</footer>
-</div>
-
-<script>
-const products = [
-  {
-    name:"قهوه عربیکا",
-    description:"دانه یا پودر قهوه با طعمی متعادل و عطر دلنشین.",
-    image:"https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=700&q=80"
-  },
-  {
-    name:"قهوه روبوستا",
-    description:"انتخابی با طعم قوی‌تر و مناسب دوست‌داران قهوه غلیظ.",
-    image:"https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=700&q=80"
-  },
-  {
-    name:"بلند اختصاصی",
-    description:"ترکیب دانه‌های قهوه برای تجربه‌ای متفاوت.",
-    image:"https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=700&q=80"
-  }
-];
-
-const supportUsername = "Sculler_Support";
-const list = document.getElementById("product-list");
-
-list.innerHTML = products.map((p,i) => `
-  <article class="product">
-    <div class="product-image" style="background-image:url('${p.image}')"></div>
-    <div class="product-body">
-      <h3>${p.name}</h3>
-      <p class="description">${p.description}</p>
-
-      <div class="field">
-        <label for="type-${i}">نوع محصول</label>
-        <select id="type-${i}">
-          <option value="دانه قهوه">دانه قهوه</option>
-          <option value="پودر قهوه">پودر قهوه</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="grind-${i}">درجه آسیاب</label>
-        <select id="grind-${i}">
-          <option value="بدون آسیاب، دانه کامل">دانه کامل، بدون آسیاب</option>
-          <option value="آسیاب ریز، اسپرسو">ریز، مناسب اسپرسو</option>
-          <option value="آسیاب متوسط">متوسط</option>
-          <option value="آسیاب درشت، فرنچ پرس">درشت، مناسب فرنچ پرس</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="weight-${i}">وزن بسته</label>
-        <select id="weight-${i}">
-          <option value="250 گرم">۲۵۰ گرم</option>
-          <option value="500 گرم">۵۰۰ گرم</option>
-          <option value="1 کیلوگرم">۱ کیلوگرم</option>
-        </select>
-      </div>
-
-      <div class="price">قیمت: استعلام از پشتیبانی</div>
-      <button class="btn" onclick="orderProduct(${i})">سفارش این محصول</button>
+      <nav class="nav-links">
+        <a href="#green">دانه سبز</a>
+        <a href="#roasted">قهوه رست‌شده</a>
+        <a href="#contact">تماس با ما</a>
+      </nav>
     </div>
-  </article>
-`).join("");
+  </header>
 
-function orderProduct(i) {
-  const p = products[i];
-  const type = document.getElementById("type-" + i).value;
-  const grind = document.getElementById("grind-" + i).value;
-  const weight = document.getElementById("weight-" + i).value;
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">SCULLER COFFEE · COFFEE SUPPLY</span>
+          <h1>انتخاب قهوه،<br><span>با استاندارد شما</span></h1>
+          <p>
+            تأمین دانه سبز و قهوه رست‌شده برای کسب‌وکارها،
+            کافه‌ها و فعالان صنعت قهوه. محصول موردنظرتان را انتخاب کنید
+            و برای استعلام قیمت و ثبت سفارش با ما در ارتباط باشید.
+          </p>
+          <a href="#green" class="button">مشاهده محصولات</a>
+          <a href="#contact" class="button button-outline">ارتباط با ما</a>
+        </div>
 
-  const message =
-    "سلام، برای سفارش از Sculler Coffee پیام می‌دهم.\n" +
-    "محصول: " + p.name + "\n" +
-    "نوع: " + type + "\n" +
-    "آسیاب: " + grind + "\n" +
-    "وزن: " + weight + "\n" +
-    "لطفاً قیمت و موجودی را اعلام کنید.";
+        <div class="benefits">
+          <div class="benefit">
+            <strong>دانه سبز قهوه</strong>
+            <span>عرضه در کیسه‌های ۳۰ کیلوگرمی</span>
+          </div>
+          <div class="benefit">
+            <strong>قهوه رست‌شده</strong>
+            <span>انتخاب درجه رست و وزن بسته‌بندی</span>
+          </div>
+          <div class="benefit">
+            <strong>سفارش مستقیم</strong>
+            <span>استعلام قیمت از پشتیبانی فروش</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  window.open(
-    "https://t.me/" + supportUsername + "?text=" + encodeURIComponent(message),
-    "_blank",
-    "noopener"
-  );
-}
-</script>
+    <section class="catalog" id="products">
+      <div class="container">
+        <div class="section-heading">
+          <small>OUR PRODUCTS</small>
+          <h2>محصولات Sculler Coffee</h2>
+          <p>دسته‌بندی موردنظرتان را انتخاب کنید.</p>
+        </div>
+
+        <div class="category-tabs" role="group" aria-label="دسته‌بندی محصولات">
+          <button class="tab active" data-target="all" aria-pressed="true">
+            همه محصولات
+          </button>
+          <button class="tab" data-target="green" aria-pressed="false">
+            دانه سبز
+          </button>
+          <button class="tab" data-target="roasted" aria-pressed="false">
+            دانه رست‌شده
+          </button>
+        </div>
+
+        <!-- GREEN COFFEE -->
+        <div id="green">
+          <h3 class="subheading">دانه سبز قهوه <span>Green Coffee</span></h3>
+
+          <div class="product-grid">
+            <article class="product-card" data-category="green">
+              <div class="product-top">
+                <span class="product-type">ROBUSTA</span>
+                <h3>Robusta Cherry PB</h3>
+                <div class="persian-name">روبوستا چری PB</div>
+              </div>
+              <div class="product-body">
+                <ul class="details">
+                  <li>نوع: دانه سبز روبوستا</li>
+                  <li>وزن کیسه: ۳۰ کیلوگرم</li>
+                  <li>کیسه مجهز به لایه GreenPro</li>
+                </ul>
+                <div class="price-row">
+                  <span>قیمت محصول</span>
+                  <strong>استعلام قیمت</strong>
+                </div>
+                <button class="button order-button"
+                  data-product="دانه سبز Robusta Cherry PB"
+                  data-weight="کیسه ۳۰ کیلویی"
+                  data-roast="ندارد">
+                  استعلام و سفارش
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="green">
+              <div class="product-top">
+                <span class="product-type">ROBUSTA</span>
+                <h3>Robusta Cherry AA</h3>
+                <div class="persian-name">روبوستا چری AA</div>
+              </div>
+              <div class="product-body">
+                <ul class="details">
+                  <li>نوع: دانه سبز روبوستا</li>
+                  <li>وزن کیسه: ۳۰ کیلوگرم</li>
+                  <li>کیسه مجهز به لایه GreenPro</li>
+                </ul>
+                <div class="price-row">
+                  <span>قیمت محصول</span>
+                  <strong>استعلام قیمت</strong>
+                </div>
+                <button class="button order-button"
+                  data-product="دانه سبز Robusta Cherry AA"
+                  data-weight="کیسه ۳۰ کیلویی"
+                  data-roast="ندارد">
+                  استعلام و سفارش
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="green">
+              <div class="product-top">
+                <span class="product-type">ARABICA</span>
+                <h3>Arabica Plantation AA</h3>
+                <div class="persian-name">عربیکا پلنتیشن AA</div>
+              </div>
+              <div class="product-body">
+                <ul class="details">
+                  <li>نوع: دانه سبز عربیکا</li>
+                  <li>وزن کیسه: ۳۰ کیلوگرم</li>
+                  <li>کیسه مجهز به لایه GreenPro</li>
+                </ul>
+                <div class="price-row">
+                  <span>قیمت محصول</span>
+                  <strong>استعلام قیمت</strong>
+                </div>
+                <button class="button order-button"
+                  data-product="دانه سبز Arabica Plantation AA"
+                  data-weight="کیسه ۳۰ کیلویی"
+                  data-roast="ندارد">
+                  استعلام و سفارش
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <div class="info-banner">
+            <strong>بسته‌بندی دانه سبز:</strong>
+            تمامی محصولات این بخش در کیسه‌های ۳۰ کیلوگرمی عرضه می‌شوند
+            که دارای لایه محافظ GreenPro هستند.
+          </div>
+        </div>
+
+        <!-- ROASTED COFFEE -->
+        <div id="roasted">
+          <h3 class="subheading">قهوه رست‌شده <span>Roasted Coffee</span></h3>
+
+          <div class="product-grid">
+            <article class="product-card" data-category="roasted">
+              <div class="product-top">
+                <span class="product-type">ROBUSTA · PB</span>
+                <h3>Robusta Cherry PB</h3>
+                <div class="persian-name">روبوستا چری PB</div>
+              </div>
+              <div class="product-body">
+                <ul class="details">
+                  <li>نوع: روبوستا</li>
+                  <li>قابل سفارش در دو درجه رست</li>
+                </ul>
+                <label class="field-label" for="pb-medium-roast">درجه رست</label>
+                <select id="pb-medium-roast" class="roast-select">
+                  <option value="مدیوم رست">Medium Roast · مدیوم</option>
+                  <option value="دارک رست">Dark Roast · دارک</option>
+                </select>
+                <label class="field-label" for="pb-medium-weight">وزن بسته‌بندی</label>
+                <select id="pb-medium-weight" class="weight-select">
+                  <option value="۱ کیلوگرم">۱ کیلوگرم</option>
+                  <option value="۵ کیلوگرم">۵ کیلوگرم</option>
+                  <option value="۲۰ کیلوگرم">۲۰ کیلوگرم</option>
+                </select>
+                <div class="price-row">
+                  <span>قیمت محصول</span>
+                  <strong>استعلام قیمت</strong>
+                </div>
+                <button class="button order-button"
+                  data-product="قهوه رست‌شده Robusta Cherry PB"
+                  data-roast-select="pb-medium-roast"
+                  data-weight-select="pb-medium-weight">
+                  استعلام و سفارش
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="roasted">
+              <div class="product-top">
+                <span class="product-type">ROBUSTA · AA</span>
+                <h3>Robusta Cherry AA</h3>
+                <div class="persian-name">روبوستا چری AA</div>
+              </div>
+              <div class="product-body">
+                <ul class="details">
+                  <li>نوع: روبوستا</li>
+                  <li>قابل سفارش در دو درجه رست</li>
+                </ul>
+                <label class="field-label" for="aa-medium-roast">درجه رست</label>
+                <select id="aa-medium-roast" class="roast-select">
+                  <option value="مدیوم رست">Medium Roast · مدیوم</option>
+                  <option value="دارک رست">Dark Roast · دارک</option>
+                </select>
+                <label class="field-label" for="aa-medium-weight">وزن بسته‌بندی</label>
+                <select id="aa-medium-weight" class="weight-select">
+                  <option value="۱ کیلوگرم">۱ کیلوگرم</option>
+                  <option value="۵ کیلوگرم">۵ کیلوگرم</option>
+                  <option value="۲۰ کیلوگرم">۲۰ کیلوگرم</option>
+                </select>
+                <div class="price-row">
+                  <span>قیمت محصول</span>
+                  <strong>استعلام قیمت</strong>
+                </div>
+                <button class="button order-button"
+                  data-product="قهوه رست‌شده Robusta Cherry AA"
+                  data-roast-select="aa-medium-roast"
+                  data-weight-select="aa-medium-weight">
+                  استعلام و سفارش
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="roasted">
+              <div class="product-top">
+                <span class="product-type">ARABICA · AA</span>
+                <h3>Arabica Plantation AA</h3>
+                <div class="persian-name">عربیکا پلنتیشن AA</div>
+              </div>
+              <div class="product-body">
+                <ul class="details">
+                  <li>نوع: عربیکا</li>
+                  <li>فقط مدیوم رست</li>
+                </ul>
+                <label class="field-label" for="arabica-roast">درجه رست</label>
+                <select id="arabica-roast" disabled>
+                  <option value="مدیوم رست">Medium Roast · مدیوم</option>
+                </select>
+                <label class="field-label" for="arabica-weight">وزن بسته‌بندی</label>
+                <select id="arabica-weight" class="weight-select">
+                  <option value="۱ کیلوگرم">۱ کیلوگرم</option>
+                  <option value="۵ کیلوگرم">۵ کیلوگرم</option>
+                  <option value="۲۰ کیلوگرم">۲۰ کیلوگرم</option>
+                </select>
+                <div class="price-row">
+                  <span>قیمت محصول</span>
+                  <strong>استعلام قیمت</strong>
+                </div>
+                <button class="button order-button"
+                  data-product="قهوه رست‌شده Arabica Plantation AA"
+                  data-roast="مدیوم رست"
+                  data-weight-select="arabica-weight">
+                  استعلام و سفارش
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <div class="info-banner">
+            <strong>انتخاب وزن و درجه رست:</strong>
+            روبوستا PB و AA در دو درجه مدیوم و دارک عرضه می‌شوند.
+            عربیکا Plantation AA فقط مدیوم رست است.
+            وزن‌های قابل انتخاب برای تمام محصولات رست‌شده ۱، ۵ و ۲۰ کیلوگرم هستند.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+        <div>
+          <h2>برای ثبت سفارش آماده‌اید؟</h2>
+          <p>برای اطلاع از قیمت روز و هماهنگی خرید با پشتیبانی ما در تلگرام تماس بگیرید.</p>
+        </div>
+        <a class="button" href="https://t.me/Sculler_Support" target="_blank" rel="noopener">
+          ارتباط با پشتیبانی
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a href="#" class="footer-brand">
+        <img src="IMG_20261011_111405_141.jpg" alt="Sculler Coffee">
+        <strong>SCULLER COFFEE</strong>
+      </a>
+      <span>© Sculler Coffee · All rights reserved</span>
+    </div>
+  </footer>
+
+  <script>
+    // Product category filters
+    const tabs = document.querySelectorAll(".tab");
+    const greenSection = document.getElementById("green");
+    const roastedSection = document.getElementById("roasted");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.target;
+
+        tabs.forEach((item) => {
+          item.classList.toggle("active", item === tab);
+          item.setAttribute("aria-pressed", item === tab ? "true" : "false");
+        });
+
+        greenSection.hidden = target === "roasted";
+        roastedSection.hidden = target === "green";
+
+        if (target === "all") {
+          greenSection.hidden = false;
+          roastedSection.hidden = false;
+        }
+
+        const section = target === "roasted"
+          ? roastedSection
+          : target === "green"
+            ? greenSection
+            : document.getElementById("products");
+
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    // Send the selected product details to Telegram support
+    const supportUsername = "Sculler_Support";
+
+    document.querySelectorAll(".order-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const product = button.dataset.product;
+        const roastSelect = button.dataset.roastSelect;
+        const weightSelect = button.dataset.weightSelect;
+
+        const roast = roastSelect
+          ? document.getElementById(roastSelect).value
+          : (button.dataset.roast || "ندارد");
+
+        const weight = weightSelect
+          ? document.getElementById(weightSelect).value
+          : (button.dataset.weight || "کیسه ۳۰ کیلویی");
+
+        const message =
+          "سلام، برای استعلام قیمت و سفارش از Sculler Coffee پیام می‌دهم.\n\n" +
+          "محصول: " + product + "\n" +
+          "درجه رست: " + roast + "\n" +
+          "وزن: " + weight + "\n\n" +
+          "لطفاً قیمت و شرایط سفارش را اعلام کنید.";
+
+        const url = "https://t.me/" + supportUsername +
+          "?text=" + encodeURIComponent(message);
+
+        window.open(url, "_blank", "noopener");
+      });
+    });
+  </script>
 </body>
 </html>
