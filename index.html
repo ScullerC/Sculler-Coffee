@@ -203,7 +203,7 @@ footer{text-align:center;color:var(--muted);padding:18px;font-size:11px}
       <a class="contact-item" href="https://t.me/Sculler_Support" target="_blank" rel="noopener">
         <span class="contact-icon">✈️</span>
         <span>پشتیبانی تلگرام
-          <small>پشتیبانی ۲۴ ساعته | @Sculler_Support</small>
+          <small> @Sculler_Support</small>
         </span>
       </a>
 
@@ -399,22 +399,23 @@ function createCard(product,type) {
     card.appendChild(price);
 
     function calculate() {
-      const weight = Number(weightField.select.value);
-      const unitPrice = type === "roasted"
-        ? product[roastField.select.value]
-        : product.price;
+  const weight = Number(weightField.select.value);
 
-      const discount = type === "powder"
-        ? 0
-        : (product.discount ?? 2);
+  const unitPrice = type === "roasted"
+    ? product[roastField.select.value]
+    : product.price;
 
-      return {
-        weight,
-        discount,
-        total:Math.round(unitPrice * weight *
-          (1 - (weight === 5 ? discount : 0)/100))
-      };
-    }
+  const discount = 2;
+  const subtotal = unitPrice * weight;
+
+  return {
+    weight,
+    discount: weight === 5 ? discount : 0,
+    total: Math.round(
+      subtotal * (weight === 5 ? 0.98 : 1)
+    )
+  };
+}
 
     function updatePrice() {
       const result = calculate();
